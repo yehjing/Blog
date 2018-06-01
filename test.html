@@ -263,10 +263,6 @@ height:50vh;
 </div>
                 
                 
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">495</span> / Reading time: <span class="post-count">2 min</span></span>
-                    </div>
-                
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
                     <span class="post-intro-time">2018/06/01</span>
@@ -410,13 +406,6 @@ height:50vh;
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> auth = <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'驗證程序之類的'</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;</span><br><span class="line">app.use(auth);</span><br><span class="line"><span class="comment">// 當同樣的內容要多次使用，這樣包裝方式精簡也好讀。</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, auth, use()<span class="number">2</span>, use()<span class="number">3</span>, ..., (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'2018/2/17'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 也可以寫到路由的引數當中，甚至是插入多個 app.use() 並且依序執行。</span></span><br></pre></td></tr></table></figure>
     </article>
     <!-- license  -->
-    
-        <div class="license-wrapper">
-            <p>原文作者: <a href="https://yehjing.github.io/Blog">Jing</a>
-            <p>原文链接: <a href="https://yehjing.github.io/Blog/test.html">https://yehjing.github.io/Blog/test.html</a>
-            <p>发表日期: <a href="https://yehjing.github.io/Blog/test.html">June 1st 2018, 9:54:28</a>
-            <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
-        </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
