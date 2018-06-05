@@ -7,10 +7,10 @@ tags: Hexo
 ## <center>如何用hexo搭建部落格並連結GitHub Pages</center>
 
 ## <center> Hexo 簡介與安裝</center>
-### 什麼是 Hexo
+### <center>什麼是 Hexo</center>
 Hexo 是一個快速、簡單且強大的網誌框架。Hexo 使用 Markdown（或其他渲染引擎）解析您的文章，並在幾秒鐘內，透過漂亮的主題產生靜態檔案。
 
-### 安裝
+### <center>安裝</center>
 首先電腦必須安裝下列軟體:
 
 * [Node.js](https://nodejs.org/en/)
@@ -21,7 +21,7 @@ Hexo 是一個快速、簡單且強大的網誌框架。Hexo 使用 Markdown（�
 $ npm install -g hexo-cli
 ```
 
-### 建立
+### <center>建立</center>
 
 創建我的部落格:
 ```cmd
@@ -57,7 +57,7 @@ $ hexo server
 
 ## <center>用 GitHub Pages 與 Hexo 相聯</center>
 
-### 創建新的倉庫並與 Hexo 關聯
+### <center>創建新的倉庫並與 Hexo 關聯</center>
 首先，先創建一個 GitHub 的帳號，然後創建一個新的倉庫。
 
 {% asset_img new_repo.png %}
@@ -76,7 +76,7 @@ $ hexo d        //佈署至關聯的GitHub
 ```
 此時在GitHub的新倉庫裡應該會看到剛剛所佈署的靜態文件。
 
-### GitHub Pages
+### <center>GitHub Pages</center>
 
 在GitHub倉庫中找到Settings選項。
 
@@ -92,7 +92,7 @@ $ hexo d        //佈署至關聯的GitHub
 
 ## <center>其它</center>
 
-### 相關連結
+### <center>相關連結</center>
 相關的站點[文件設定](https://hexo.io/zh-tw/docs/configuration.html)及[主題更換](https://hexo.io/zh-tw/docs/themes.html)在Hexo官方文件中有詳細說明。
 
 [Hexo官方文件](https://hexo.io/docs/index.html)
