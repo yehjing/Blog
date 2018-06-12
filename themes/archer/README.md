@@ -33,20 +33,21 @@ hexo-theme-archer
 - 2018.03.18 - 『添加 fancybox』
 - 2018.05.01 - 『添加 license』
 - 2018.05.24 - 『可自定义访问量统计/增加字数统计及阅读时间』
+- 2018.06.04 - 『添加 Algolia 搜索，[详情](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%90%AF%E7%94%A8-Algolia-%E6%90%9C%E7%B4%A2)』
 
 ## 说明
 
-- 本主题受[yilia](https://github.com/litten/hexo-theme-yilia)主题和[huxpro](https://github.com/Huxpro/huxpro.github.io)主题的启发，结合了前者的sidebar设计及后者的UI设计。通过sidebar能够不跳转到archive页、tag页及**categories页**进行导航。
-- 兼容性：现代浏览器及IE10+。
-- 有任何使用上的问题欢迎[**发起issue**](https://github.com/fi3ework/hexo-theme-archer/issues)。
-- 本主题会持续维护及优化，欢迎star 😆。
+- 本主题受 [yilia](https://github.com/litten/hexo-theme-yilia) 主题和 [huxpro](https://github.com/Huxpro/huxpro.github.io) 主题的启发，结合了前者的 sidebar 设计及后者的 UI 设计。通过 sidebar 能够不跳转到 archive 页、tag页及 categories 页进行导航。
+- 兼容性：现代浏览器及 IE10+。
+- 有任何使用上的问题欢迎 [**发起 issue**](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%90%AF%E7%94%A8-Algolia-%E6%90%9C%E7%B4%A2)。
+- 本主题会持续维护及优化，欢迎 star 😆。
 
 ##  安装
 
 1. 在**Hexo目录**下执行
 
 ``` shell
-npm i hexo-generator-json-content --save && npm i --save hexo-wordcount && git clone https://github.com/fi3ework/hexo-theme-archer.git themes/archer
+npm i hexo-generator-json-content --save && npm i --save hexo-wordcount && git clone https://github.com/fi3ework/hexo-theme-archer.git themes/archer --depth=1
 ```
 
 2. 修改**Hexo目录**下的 `_config.yml` 的 `theme` 字段为 `archer`
@@ -89,6 +90,7 @@ jsonContent:
 - [自定义主题颜色](https://github.com/fi3ework/hexo-theme-archer/wiki/%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2)
 - [置顶文章](https://www.jianshu.com/p/42a4efcdf8d7)
 - [设置文章版权信息](https://github.com/fi3ework/hexo-theme-archer/wiki/%E8%AE%BE%E7%BD%AE%E6%96%87%E7%AB%A0%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF)
+- [启用站内搜索](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%90%AF%E7%94%A8-Algolia-%E6%90%9C%E7%B4%A2)
 
 ## 主题配置
 
@@ -145,6 +147,16 @@ post_header_image:
 # 404页头图
 _404_image:
 
+# ========== 搜索 ========== #
+algolia_search:
+  enable: false
+  hits:
+    per_page: 10 # 每页的结果数
+  labels:
+    input_placeholder: Search for Posts # 搜索栏 placeholder
+    hits_empty: "We did not find any results for the search: ${query}" # 搜索结果提示
+    hits_stats: "${hits} results found in ${time} ms" # 搜索无结果的提示
+    
 # ========== 评论插件 ========== #
 # 目前支持直接添加Livere，Disqus，Gitment，畅言及友言，填写插件对应的字段即可启用。
 # 如果想添加其他评论插件，在custom.ejs中添加即可。

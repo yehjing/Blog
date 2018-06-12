@@ -92,6 +92,6 @@ $ hexo d        //佈署至關聯的GitHub
 
 ## <center>相關連結</center>
 
-相關的站點[文件設定](https://hexo.io/zh-tw/docs/configuration.html)及[主題更換](https://hexo.io/zh-tw/docs/themes.html)在Hexo官方文件中有詳細說明。
+- 相關的站點[文件設定](https://hexo.io/zh-tw/docs/configuration.html)及[主題更換](https://hexo.io/zh-tw/docs/themes.html)在Hexo官方文件中有詳細說明。
 
-[Hexo官方文件](https://hexo.io/docs/index.html)
+- [Hexo官方文件](https://hexo.io/docs/index.html)
