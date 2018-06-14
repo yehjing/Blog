@@ -4,7 +4,7 @@ avatar: /avatar/Misaka.jpg
 # author name
 author: Jing
 # signature
-signature: witness me
+signature: 整理自己的所學，並做成筆記，讓自己能透過分享而真正的達到從入門到理解。
 # SNS
 social:
   email: jingworkjing@gmail.com
@@ -35,11 +35,11 @@ about:
 
 # ========== Site ========== #
 # title of the site
-SEO_title: Jing's Blog
+SEO_title: Jing's 前端筆記
 # main title
-main_title: Jing's Blog
+main_title: Jing's 前端筆記
 # subtitle
-subtitle: it's better to burn out than to fade away
+subtitle: 記不起來的就先寫下來吧!
 # site haeder image
 site_header_image: '/intro/index-bg.jpg'
 # post haeder image
@@ -98,7 +98,7 @@ truncate_length:
 # enable toc
 toc: true
 # word count & reading time
-reading_info: true
+reading_info: false
 # intro height (the default is 50 percents of the screen, you can input other number)
 index_intro_height: 50
 post_intro_height: 50
