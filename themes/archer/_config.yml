@@ -4,7 +4,7 @@ avatar: /avatar/Misaka.jpg
 # author name
 author: Jing
 # signature
-signature: 整理自己的所學，並做成筆記，讓自己能透過分享而真正的達到從入門到理解。
+signature: 整理自己的所學，並做成筆記，讓自己能透過分享達到真正的從入門到理解。
 # SNS
 social:
   email: jingworkjing@gmail.com
@@ -35,9 +35,9 @@ about:
 
 # ========== Site ========== #
 # title of the site
-SEO_title: Jing's 前端筆記
+SEO_title: Jing's 技術筆記
 # main title
-main_title: Jing's 前端筆記
+main_title: Jing's 技術筆記
 # subtitle
 subtitle: 記不起來的就先寫下來吧!
 # site haeder image
@@ -92,7 +92,7 @@ CNZZ_analytics:
 
 # ========== Others ========== #
 # favicon
-favicon: /assets/favicon.ico
+favicon: /assets/favicon1.ico
 # truncate length of abstracts in index page (the default is 300, there will be no abstruct if you input 0)
 truncate_length: 
 # enable toc
