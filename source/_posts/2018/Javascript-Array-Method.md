@@ -17,9 +17,9 @@ tags:
 
 ## <center> 陣列內容操作</center>
 
-### <center>在開頭或結尾處添加或移除一個元素</center>
+### 在開頭或結尾處添加或移除一個元素 push()、pop()、unshift()、shift()
 
-#### <center>push()、pop()、unshift()、shift()</center>
+
 如果要在陣列的開頭或結尾處添加或移除一個元素，這邊介紹4個方法，分別是`push()`、`pop()`、`unshift()`、`shift()`。
 
 `push()`是從陣列最後面 '**塞入**' 一個值。
@@ -41,9 +41,8 @@ arr.unshift('a');   //['a', 'b', 'c', 'd']     //回傳4
 arr.shift();      //['b', 'c', 'd']          //回傳'a'
 ```
 
-### <center>在結尾處添加多個元素</center>
+### 在結尾處添加多個元素 concat()
 
-#### <center>concat()</center>
 
 `concat()`方法可以在陣列結尾處加入多個元素，並回傳'**一個新的陣列**'。
 
@@ -60,9 +59,8 @@ arr.concat([4, [5, 6]]);  //回傳新陣列[1, 2, 3, 4, [5, 6]]
 //原本陣列 arr 並不會被修改
 ```
 
-### <center>陣列反轉</center>
+### 陣列反轉 reverse()
 
-#### <center>reverse()</center>
 
 `reverse()`方法能夠反轉陣列的順序:
 ```js
@@ -71,9 +69,8 @@ arr.reverse();
 console.log(arr);  //[3, 2, 1]
 ```
 
-### <center> 陣列排序 </center>
+### 陣列排序 sort()
 
-#### <center> sort() </center>
 
 `sort()`方法是以Unicode字串碼順序來排序英文與數字。
 
@@ -98,9 +95,8 @@ numArr.sort((a, b) => a - b);
 console.log(numArr);  //[29, 41, 98, 120]
 ```
 
-### <center> 在任何位置加入或移除元素 </center>
+### 在任何位置加入或移除元素 splice()
 
-#### <center> splice() </center>
 
 `splice()`方法可以就地修改字串，在任何索引加入或移除元素。方法中的第一個參數是'要開始修改的索引'，第二個是'要移除的元素數量'(若不想移除任何元素，就使用'0')，其餘的參數就是'所要加入的元素'。
 
@@ -118,9 +114,9 @@ arr.splice(2, 1, 'a', 'b'); //回傳[5];  arr現在是 [1, 4, 'a', 'b', 6, 7]
 
 ## <center> 陣列轉換 </center>
 
-### <center> 比對資料 </center>
+### 比對資料 map()、filter()
 
-#### <center> map() </center>
+**map()**
 
 `map()` 方法可以轉換陣列中的每一個元素，它會將所有陣列中的元素依序分別傳入一次至 callback 函式當中，並'**建立一個新的陣列**'，其內容為原陣列的每一個元素經由回呼函式(Callback Function)運算後所回傳的結果之集合。
 
@@ -144,7 +140,7 @@ console.log(fruits) ;
 ```
 在這個範例中，我們使用了元素本身(x)，也使用了它的索引(i)，之所以需要索引，是因為我們要將items與prices裡面的元素用他們的索引連結起來，在這裡 map 會從各陣列拉入資訊，將字串陣列轉換為物件陣列。
 
-#### <center> filter() </center>
+**filter()**
 
 `filter()` 方法的目的是移除陣列中不想要的東西，會回傳一個'**已移除元素的新陣列**'。
 ```js
@@ -160,9 +156,8 @@ peoples.filter(a => a.age > 20); //[{name: 'Cart', age: 25}]
 
 ## <center> 特別的方法 </center>
 
-### <center> 陣列魔法 </center>
+### 陣列魔法 reduce()
 
-#### <center> reduce() </center>
 
 `reduce()` 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。
 上面我們有介紹過`map()`方法可以轉換陣列中的每一個元素，但`reduce()`會轉換整個陣列，它通常會被用來將陣列精簡為一個值，例如加總陣列的數字或計算平均值。但是`reduce()`提供的單值可以是物件或另一個陣列，所以`reduce()`也有`map()`與`filter()`的功能。
