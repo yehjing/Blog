@@ -189,13 +189,13 @@
     }
 
     .nextSlogan {
-        &::before{
+        &::after{
             content: '> ';
             font-size: 1.7rem;
         }
     }
     .prevSlogan {
-        &::after {
+        &::before {
             content: ' <';
             font-size: 1.7rem;
         }
