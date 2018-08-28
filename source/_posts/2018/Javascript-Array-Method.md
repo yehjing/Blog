@@ -87,7 +87,7 @@ console.log(numArr);  //[120, 29, 41, 98]
 
 數字這樣的排列，通常不是我們所想要的結果。
 
-所以一般在使用`sort()`時，會加入一個' 排序函式(compareFunction) '，並同時傳入2個參數。
+所以一般在使用`sort()`時，會加入一個' 排序函式(compareFunction) '，並同時傳入 2 個參數。
 
 ```js
 const numArr = [98, 120, 29, 41];
