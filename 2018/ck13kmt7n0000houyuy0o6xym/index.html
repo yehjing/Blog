@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Jing">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Jing">
+    
+    <meta name="keywords" content="技術筆記,前端">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Javascript Array Method · Jing&#39;s 技術筆記</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/Blog/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/Blog/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/Blog/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/Blog/assets/favicon.png">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/Blog/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/Blog/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-124036962-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/Blog/" >Jing&#39;s 技術筆記</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Javascript Array Method</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/Blog/>Jing's 技術筆記</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/Blog/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Javascript Array Method
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ES6">ES6</a>
+    
+</div>
+                
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/06/05</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/Blog/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/Blog/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="Javascript-Array-Method"><a href="#Javascript-Array-Method" class="headerlink" title="Javascript Array Method"></a><center>Javascript Array Method</center></h2><p>在工作中，常常會遇到需要處理陣列的資料時候，所以熟悉 Javascript 裡的陣列方法是必須的，在剛學習時，常常會忘記也不清楚這些方法<code>return</code>回來的結果是甚麼、會不會改變原陣列中的資料。  </p>
+<p>所以在這邊做了個筆記，整理一下自己常使用的 JS 陣列方法，方便自己以後能夠快速查找，也希望對參考此篇文章的讀者有幫助。(有些自己不常用的陣列方法這邊就先不提，若未來常使用到會再做補充)</p>
+<hr>
+<h2 id="陣列內容操作"><a href="#陣列內容操作" class="headerlink" title=" 陣列內容操作"></a><center> 陣列內容操作</center></h2><h3 id="在開頭或結尾處添加或移除一個元素-push-、pop-、unshift-、shift"><a href="#在開頭或結尾處添加或移除一個元素-push-、pop-、unshift-、shift" class="headerlink" title="在開頭或結尾處添加或移除一個元素 push()、pop()、unshift()、shift()"></a>在開頭或結尾處添加或移除一個元素 push()、pop()、unshift()、shift()</h3><p>如果要在陣列的開頭或結尾處添加或移除一個元素，這邊介紹4個方法，分別是<code>push()</code>、<code>pop()</code>、<code>unshift()</code>、<code>shift()</code>。</p>
+<p><code>push()</code>是從陣列最後面 ‘<strong>塞入</strong>‘ 一個值。</p>
+<p><code>pop()</code>是從陣列最後面 ‘<strong>拿出</strong>‘ 一個值。</p>
+<p><code>unshift()</code>是從陣列最前面 ‘<strong>塞入</strong>‘ 一個值。</p>
+<p><code>shift()</code>是從陣列最前面 ‘<strong>拿出</strong>‘ 一個值。</p>
+<p><code>push</code>與<code>shift</code>會在加入新元素之後回傳陣列的’<strong>最新長度</strong>‘，而<code>pop</code>與<code>shift</code>會回傳’<strong>被移除的元素</strong>‘。    </p>
+<p>看一下例子:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>];</span><br><span class="line">arr.push(<span class="string">'e'</span>);    <span class="comment">//['b', 'c', 'd', 'e']     //回傳4</span></span><br><span class="line">arr.pop();        <span class="comment">//['b', 'c', 'd']          //回傳'e'</span></span><br><span class="line">arr.unshift(<span class="string">'a'</span>);   <span class="comment">//['a', 'b', 'c', 'd']     //回傳4</span></span><br><span class="line">arr.shift();      <span class="comment">//['b', 'c', 'd']          //回傳'a'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="在結尾處添加多個元素-concat"><a href="#在結尾處添加多個元素-concat" class="headerlink" title="在結尾處添加多個元素 concat()"></a>在結尾處添加多個元素 concat()</h3><p><code>concat()</code>方法可以在陣列結尾處加入多個元素，並回傳’<strong>一個新的陣列</strong>‘。</p>
+<p>如果將陣列傳入<code>concat</code>，他會拆開這些傳入的陣列，並將他們的元素加入原本的陣列。</p>
+<p>看一下例子:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.concat(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>);      <span class="comment">//回傳新陣列[1, 2, 3, 4, 5, 6]</span></span><br><span class="line">arr.concat([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]);    <span class="comment">//回傳新陣列[1, 2, 3, 4, 5, 6]</span></span><br><span class="line">arr.concat([<span class="number">4</span>, <span class="number">5</span>], <span class="number">6</span>);    <span class="comment">//回傳新陣列[1, 2, 3, 4, 5, 6]</span></span><br><span class="line">arr.concat([<span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>]]);  <span class="comment">//回傳新陣列[1, 2, 3, 4, [5, 6]]</span></span><br><span class="line"><span class="comment">//concat只會拆解所傳入的陣列，並不會拆開這些陣列裡的陣列</span></span><br><span class="line"><span class="comment">//原本陣列 arr 並不會被修改</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="陣列反轉-reverse"><a href="#陣列反轉-reverse" class="headerlink" title="陣列反轉 reverse()"></a>陣列反轉 reverse()</h3><p><code>reverse()</code>方法能夠反轉陣列的順序:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.reverse();   </span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">//[3, 2, 1]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="陣列排序-sort"><a href="#陣列排序-sort" class="headerlink" title="陣列排序 sort()"></a>陣列排序 sort()</h3><p><code>sort()</code>方法是以Unicode字串碼順序來排序英文與數字。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//英文 : 按照第一個字母排序:</span></span><br><span class="line"><span class="keyword">const</span> strArr = [<span class="string">'ant'</span>, <span class="string">'cat'</span>, <span class="string">'dog'</span>, <span class="string">'bear'</span>];</span><br><span class="line">strArr.sort();</span><br><span class="line"><span class="built_in">console</span>.log(strArr);  <span class="comment">//['ant', 'bear', 'cat', 'dog']</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//數字 : 按照數字第一個字排序:</span></span><br><span class="line"><span class="keyword">const</span> numArr = [<span class="number">98</span>, <span class="number">120</span>, <span class="number">29</span>, <span class="number">41</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numArr);  <span class="comment">//[120, 29, 41, 98]</span></span><br></pre></td></tr></table></figure>
+<p>數字這樣的排列，通常不是我們所想要的結果。</p>
+<p>所以一般在使用<code>sort()</code>時，會加入一個’ 排序函式(compareFunction) ‘，並同時傳入 2 個參數。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numArr = [<span class="number">98</span>, <span class="number">120</span>, <span class="number">29</span>, <span class="number">41</span>];</span><br><span class="line">numArr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line"><span class="built_in">console</span>.log(numArr);  <span class="comment">//[29, 41, 98, 120]</span></span><br></pre></td></tr></table></figure>
+<h3 id="在任何位置加入或移除元素-splice"><a href="#在任何位置加入或移除元素-splice" class="headerlink" title="在任何位置加入或移除元素 splice()"></a>在任何位置加入或移除元素 splice()</h3><p><code>splice()</code>方法可以就地修改字串，在任何索引加入或移除元素。方法中的第一個參數是’要開始修改的索引’，第二個是’要移除的元素數量’(若不想移除任何元素，就使用 ‘0’ )，其餘的參數就是’所要加入的元素’。</p>
+<p><code>splice()</code>方法會回傳一個陣列，陣列內容是被刪除的元素，若沒有元素被移除，則回傳一個空陣列。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>];      </span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);  <span class="comment">//回傳[];  arr現在是 [1, 2, 3, 4, 5, 7]</span></span><br><span class="line">arr.splice(<span class="number">5</span>, <span class="number">0</span>, <span class="number">6</span>);        <span class="comment">//回傳[];  arr現在是 [1, 2, 3, 4, 5, 6, 7]</span></span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">2</span>);           <span class="comment">//回傳[2, 3];  arr現在是 [1, 4, 5, 6, 7]</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">1</span>, <span class="string">'a'</span>, <span class="string">'b'</span>); <span class="comment">//回傳[5];  arr現在是 [1, 4, 'a', 'b', 6, 7]</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="陣列轉換"><a href="#陣列轉換" class="headerlink" title=" 陣列轉換 "></a><center> 陣列轉換 </center></h2><h3 id="比對資料-map-、filter"><a href="#比對資料-map-、filter" class="headerlink" title="比對資料 map()、filter()"></a>比對資料 map()、filter()</h3><p><strong>map()</strong></p>
+<p><code>map()</code> 方法可以轉換陣列中的每一個元素，它會將所有陣列中的元素依序分別傳入一次至 callback 函式當中，並’<strong>建立一個新的陣列</strong>‘，其內容為原陣列的每一個元素經由回呼函式 (Callback Function) 運算後所回傳的結果之集合。</p>
+<p>先看個簡單的例子:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fruits = [&#123;<span class="attr">name</span>: <span class="string">'Apple'</span>, <span class="attr">price</span>: <span class="number">100</span>&#125;,&#123;<span class="attr">name</span>: <span class="string">'Banana'</span>, <span class="attr">price</span>: <span class="number">200</span>&#125;];</span><br><span class="line"><span class="keyword">const</span> names = fruits.map(<span class="function"><span class="params">a</span> =&gt;</span> a.name);      <span class="comment">//['Apple', 'Banana']</span></span><br><span class="line"><span class="keyword">const</span> prices = fruits.map(<span class="function"><span class="params">a</span> =&gt;</span> a.price);    <span class="comment">//[100, 200]</span></span><br><span class="line"><span class="keyword">const</span> discount = price.map(<span class="function"><span class="params">a</span> =&gt;</span> a.a*<span class="number">0.8</span>);   <span class="comment">//[80, 160]</span></span><br></pre></td></tr></table></figure></p>
+<p>當你提供的函式被呼叫時，最多可以使用三個參數宣告回呼函式：元素本身、元素索引、以及陣列本身(較少用到)。</p>
+<p>接續上述範例，如果水果與價格被存放在兩個不同的陣列當中，但我們又想結合他們:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> items = [<span class="string">'Apple'</span>, <span class="string">'Banana'</span>];</span><br><span class="line"><span class="keyword">const</span> prices = [<span class="number">100</span> ,<span class="number">200</span>];</span><br><span class="line"><span class="keyword">const</span> fruits = items.map( <span class="function">(<span class="params">x, i</span>) =&gt;</span> (&#123;<span class="attr">name</span>: x, <span class="attr">price</span>: prices[i]&#125;) );</span><br><span class="line"><span class="comment">//必須將物件用括號包起來，不然箭頭函式會將大括號視為區塊標示</span></span><br><span class="line"><span class="built_in">console</span>.log(fruits) ;</span><br><span class="line"><span class="comment">// [&#123;name: 'Apple', price: 100&#125;,&#123;name: 'Banana', price: 200&#125;]</span></span><br></pre></td></tr></table></figure></p>
+<p>在這個範例中，我們使用了元素本身 (x) ，也使用了它的索引 (i) ，之所以需要索引，是因為我們要將 items 與 prices 裡面的元素用他們的索引連結起來，在這裡 map 會從各陣列拉入資訊，將字串陣列轉換為物件陣列。</p>
+<p><strong>filter()</strong></p>
+<p><code>filter()</code> 方法的目的是移除陣列中不想要的東西，會回傳一個’<strong>已移除元素的新陣列</strong>‘。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> peoples = [</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'Alex'</span>, <span class="attr">age</span>: <span class="number">13</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'John'</span>, <span class="attr">age</span>: <span class="number">19</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'Cart'</span>, <span class="attr">age</span>: <span class="number">25</span>&#125;</span><br><span class="line">]</span><br><span class="line">peoples.filter(<span class="function"><span class="params">a</span> =&gt;</span> a.age &gt; <span class="number">20</span>); <span class="comment">//[&#123;name: 'Cart', age: 25&#125;]</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="特別的方法"><a href="#特別的方法" class="headerlink" title=" 特別的方法 "></a><center> 特別的方法 </center></h2><h3 id="陣列魔法-reduce"><a href="#陣列魔法-reduce" class="headerlink" title="陣列魔法 reduce()"></a>陣列魔法 reduce()</h3><p><code>reduce()</code> 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。<br>上面我們有介紹過<code>map()</code>方法可以轉換陣列中的每一個元素，但<code>reduce()</code>會轉換整個陣列，它通常會被用來將陣列精簡為一個值，例如加總陣列的數字或計算平均值。但是<code>reduce()</code>提供的單值可以是物件或另一個陣列，所以<code>reduce()</code>也有<code>map()</code>與<code>filter()</code>的功能。</p>
+<p><code>map()</code>與<code>filter()</code>方法中，傳入回呼的第一個元素一定是目前陣列的元素，但<code>reduce()</code>所傳入回呼函式的第一個值是個’<strong>累加器</strong>‘，再來才是元素本身、元素索引、以及陣列本身。</p>
+<p>除了接收回呼之外也可接收累加器的初始值，例:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">7</span>];</span><br><span class="line"><span class="keyword">const</span> sum = arr.reduce(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a += b, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sum);  <span class="comment">//21</span></span><br></pre></td></tr></table></figure></p>
+<p>這時被傳入 reduce 的函式會接收兩個參數 : 累加器 (a) 、目前陣列元素 (b) ，而累加器的初始值是’0’。<br>此時函式被呼叫時，會使用陣列的第一個元素 (3) 來呼叫函式。a的初始值是 0 ， b 的值是 3 ，這時函式會回傳a與b的總和 (3) ，它會變成下一個步驟a的值。</p>
+<p>若不設定累加器初始值 (undefined) ，則會使用陣列的第二個元素 (2) 來呼叫函式。 a的初始值是 3 ， b 的值是 2 ，這時函式會回傳 a 與 b 的總和 (5) ，它會變成下一個步驟 a 的值。(相當於將陣列第一個元素當做是累加器初始值)</p>
+<hr>
+<h2 id="相關連結"><a href="#相關連結" class="headerlink" title=" 相關連結 "></a><center> 相關連結 </center></h2><ul>
+<li><a href="https://yehjing.github.io/Blog/2018/js30-4.html/">[JS30] - Day4</a></li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/Blog/2018/ck13kmt860007houyp27armbz/" title= 如何用hexo搭建部落格並連結GitHub Pages >
+                    <div class="prevTitle">如何用hexo搭建部落格並連結GitHub Pages</div>
+                </a>
+            
+        </li>
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/Blog/2018/ck13kmt7w0001houytair279u/" title= [JS30] Day 1: JavaScript Drum Kit >
+                    <div class="nextTitle">[JS30] Day 1: JavaScript Drum Kit</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80NjQ5OS8yMzAwOQ==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:jingworkjing@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/yehjing" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+    
+    <span id="busuanzi_container_site_uv">站點訪問量: <span id="busuanzi_value_site_uv"></span></span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Javascript-Array-Method"><span class="toc-number">1.</span> <span class="toc-text">Javascript Array Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#陣列內容操作"><span class="toc-number">2.</span> <span class="toc-text"> 陣列內容操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在開頭或結尾處添加或移除一個元素-push-、pop-、unshift-、shift"><span class="toc-number">2.1.</span> <span class="toc-text">在開頭或結尾處添加或移除一個元素 push()、pop()、unshift()、shift()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在結尾處添加多個元素-concat"><span class="toc-number">2.2.</span> <span class="toc-text">在結尾處添加多個元素 concat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#陣列反轉-reverse"><span class="toc-number">2.3.</span> <span class="toc-text">陣列反轉 reverse()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#陣列排序-sort"><span class="toc-number">2.4.</span> <span class="toc-text">陣列排序 sort()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在任何位置加入或移除元素-splice"><span class="toc-number">2.5.</span> <span class="toc-text">在任何位置加入或移除元素 splice()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#陣列轉換"><span class="toc-number">3.</span> <span class="toc-text"> 陣列轉換 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#比對資料-map-、filter"><span class="toc-number">3.1.</span> <span class="toc-text">比對資料 map()、filter()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特別的方法"><span class="toc-number">4.</span> <span class="toc-text"> 特別的方法 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#陣列魔法-reduce"><span class="toc-number">4.1.</span> <span class="toc-text">陣列魔法 reduce()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">5.</span> <span class="toc-text"> 相關連結 </span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 9
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck13kmt8y000ahouyrh0tebf1/" >演算法與時間複雜度</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck13kmt840006houye26zok0t/" >JS 複製 DIV 內容</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck13kmt810004houy2156w1za/" >[JS30] Day 5: Flex Panels Image Gallery</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck13kmt830005houy8iso3eyu/" >[JS30] Day 4: Array Cardio Day 1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck13kmt800003houygo5vqqkx/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck13kmt7y0002houy9jnzk6kx/" >[JS30] Day 2: CSS + JS Clock</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck13kmt7w0001houytair279u/" >[JS30] Day 1: JavaScript Drum Kit</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck13kmt7n0000houyuy0o6xym/" >Javascript Array Method</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck13kmt860007houyp27armbz/" >如何用hexo搭建部落格並連結GitHub Pages</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
+    
+        <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
+    
+        <span class="sidebar-tag-name" data-tags="Hexo"><span class="iconfont-archer">&#xe606;</span>Hexo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Algorithm"><span class="iconfont-archer">&#xe606;</span>Algorithm</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
+    
+        <span class="sidebar-category-name" data-categories="JS30-筆記"><span class="iconfont-archer">&#xe60a;</span>JS30-筆記</span>
+    
+        <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/Blog/",
+        author: "Jing"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/Blog/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/Blog/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/Blog/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
