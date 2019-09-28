@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>[JS30] Day 3: Playing with CSS Variables and JS · Jing&#39;s 技術筆記</title>
+    <title>[JS30] Day 1: JavaScript Drum Kit · Jing&#39;s 技術筆記</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -228,7 +228,7 @@
                 <a href="/Blog/" >Jing&#39;s 技術筆記</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">[JS30] Day 3: Playing with CSS Variables and JS</a>
+                <a href="#" class="post-name">[JS30] Day 1: JavaScript Drum Kit</a>
             </div>
     </div>
     
@@ -258,7 +258,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            [JS30] Day 3: Playing with CSS Variables and JS
+            [JS30] Day 1: JavaScript Drum Kit
             <!-- 404 -->
             
         </h1>
@@ -284,7 +284,7 @@ height:50vh;
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/06/28</span>
+                    <span class="post-intro-time">2018/06/12</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -408,46 +408,23 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <img src="/Blog/2018/ck13l10ib0002louyyd3f3w7a/title.PNG">
-<h2 id="Day-3-Playing-with-CSS-Variables-and-JS"><a href="#Day-3-Playing-with-CSS-Variables-and-JS" class="headerlink" title="Day 3: Playing with CSS Variables and JS"></a><center>Day 3: Playing with CSS Variables and JS</center></h2><center>學習使用 CSS 變數並搭配 JS </center>
-
-<p>主要練習:</p>
-<ul>
-<li>CSS - Variables</li>
-<li>HTML5 - data-* attribute</li>
-<li>JS - element.dataset.camelCasedName</li>
-<li>JS - CSSStyleDeclaration.setProperty()</li>
-<li>JS - Document.documentElement</li>
-</ul>
+        <img src="/Blog/2018/ck13lk6oc0002vsuyehpz5hdv/title.png">
+<h2 id="Day-1-JavaScript-Drum-Kit"><a href="#Day-1-JavaScript-Drum-Kit" class="headerlink" title="Day 1: JavaScript Drum Kit"></a><center>Day 1: JavaScript Drum Kit</center></h2><p>透過 JavaScript 模擬一個打鼓的頁面，在按下按鍵的同時，頁面上對應的字母按鈕會變大並加上邊框，同時具有樂器的聲音。</p>
 <hr>
-<h2 id="設定-CSS-變數"><a href="#設定-CSS-變數" class="headerlink" title="設定 CSS 變數"></a><center>設定 CSS 變數</center></h2><h3 id="CSS-Variables"><a href="#CSS-Variables" class="headerlink" title="CSS - Variables"></a>CSS - Variables</h3><p>在原生的 CSS 中我們也可以使用變數的概念，相較於 CSS 前處理器（例如，SASS/SCSS），CSS 前處理器是在建立成 CSS 檔案前就把變數替代成真實的值了，所以當 SCSS 透過前處理器完成之後，這個 CSS 檔就是靜態無法透過修改變數來一次修改多個 style 屬性值，因此使用者是無法透過瀏覽器來修改變數的值。</p>
-<p>但是使用 CSS 原生變數的話，則是可以透過 JavaScript 擷取，並動態修改變數值，而這個變數值一變，所有套用這個變數的 Style 屬性值也都會連帶變更，也就是說可以讓使用者透過瀏覽器改變這個變數值，做到更多一次調整瀏覽器樣式的效果。</p>
-<p>我們利用 <code>:root{--customName: value}</code> 來建立 CSS 的變數，並且在 CSS 屬性值中使用 <code>var(--customName)</code> 來代入變數的值 :</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 建立變數 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--base</span>: <span class="number">#ffc600</span>;</span><br><span class="line">  <span class="attribute">--spacing</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">--blur</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 使用變數 */</span></span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="built_in">var</span>(--spacing);</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--base);</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">blur</span>(var(--blur));</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.hl</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--base);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="播放、增加動態效果"><a href="#播放、增加動態效果" class="headerlink" title="播放、增加動態效果"></a><center>播放、增加動態效果</center></h2><h3 id="Step1-偵測鍵盤按鍵Keycode"><a href="#Step1-偵測鍵盤按鍵Keycode" class="headerlink" title="Step1 : 偵測鍵盤按鍵Keycode"></a>Step1 : 偵測鍵盤按鍵Keycode</h3><p>為了知道我們鍵盤按鍵所對應的 Keycode ，所以我們先建立一個 window 的監聽事件去監聽’按下鍵盤’這個動作 (<code>keydown</code>)，所然後再用 <code>console.log(e.keyCode)</code> 來看看所對應的 Keycode。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'keydown'</span>, e =&gt; <span class="built_in">console</span>.log(e.keyCode));</span><br><span class="line"><span class="comment">// 偵測使用者按下按鍵的 Keycode</span></span><br></pre></td></tr></table></figure>
+<p>透過 <a href="http://keycode.info/" target="_blank" rel="noopener">這個網站</a> 可以快速的查看對應的鍵碼。</p>
+<h3 id="Step2-播放聲音及改變樣式"><a href="#Step2-播放聲音及改變樣式" class="headerlink" title="Step2 : 播放聲音及改變樣式"></a>Step2 : 播放聲音及改變樣式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">playSound</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//根據html裡的 data-key 屬性 選擇對應的btn跟audio</span></span><br><span class="line">  <span class="keyword">let</span> audio = <span class="built_in">document</span>.querySelector(<span class="string">`audio[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">let</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">if</span>(!audio) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span>(!btn) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(btn.classList.contains(<span class="string">'cut'</span>))<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  btn.classList.add(<span class="string">'playing'</span>);</span><br><span class="line">  btn.classList.add(<span class="string">'cut'</span>);</span><br><span class="line">  audio.currentTime = <span class="number">0</span>;</span><br><span class="line">  audio.play();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>這時，當我們按下按鍵後，特效跟音效都出來了，但還有個問題，就是按下去後畫面上的按鍵不會回復成原本的樣子。</p>
+<p>所以我們要用 <code>transitionend</code> 事件去做處理 :<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//音樂播放結束時移除動畫</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reCut</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">if</span>(!btn) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  btn.classList.remove(<span class="string">'cut'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> keys=<span class="built_in">document</span>.querySelectorAll(<span class="string">'.key'</span>);</span><br><span class="line">keys.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  key.addEventListener(<span class="string">'transitionend'</span>,removetrasition)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removetrasition</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(e.propertyName !== <span class="string">'transform'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  e.target.classList.remove(<span class="string">'playing'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>這時，就大功告成啦!</p>
 <hr>
-<h2 id="利用-JS-改變-CSS-變數的值"><a href="#利用-JS-改變-CSS-變數的值" class="headerlink" title="利用 JS 改變 CSS 變數的值"></a><center>利用 JS 改變 CSS 變數的值</center></h2><h3 id="Step1-對所有-input-註冊監聽事件"><a href="#Step1-對所有-input-註冊監聽事件" class="headerlink" title="Step1 : 對所有 input 註冊監聽事件"></a>Step1 : 對所有 input 註冊監聽事件</h3><p>這邊，我們用<code>querySelectorAll()</code>選取所有的<code>input</code>，並用變數<code>inputs</code>儲存下來，再用<code>forEach()</code>方法分別對<code>input</code>做監聽 :</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> inputs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.controls input'</span>);</span><br><span class="line"></span><br><span class="line">inputs.forEach(<span class="function"><span class="params">input</span> =&gt;</span> &#123;</span><br><span class="line">  input.addEventListener(<span class="string">'change'</span>, changeHandler);</span><br><span class="line">  input.addEventListener(<span class="string">'mousemove'</span>, changeHandler);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>為什麼這邊不是只使用 <code>change</code> ? 因為在<code>html</code>中有使用<code>input[type=&quot;range&quot;]</code>的拉霸，為了能讓滑鼠在拉動的同時也能即時顯示出效果，所以才加上了一個<code>mousemove</code>的監聽事件。</p>
-<h3 id="Step2-寫出監聽器並改變-CSS-變數"><a href="#Step2-寫出監聽器並改變-CSS-變數" class="headerlink" title="Step2 : 寫出監聽器並改變 CSS 變數"></a>Step2 : 寫出監聽器並改變 CSS 變數</h3><p>創建一個<code>changeHandler</code>的事件監聽器，並利用<code>style.setProperty(&#39;--customName&#39;, &#39;value&#39;)</code>來動態修改 CSS 變數的值，但要記得要加上單位（例如， px ）:</p>
-<blockquote>
-<p><strong>注意 :</strong>　要透過 JS 修改 CSS 變數就必須使用<code>style.setProperty(&#39;--customName&#39;, &#39;value&#39;)</code>，不能直接使用<code>style.--customName = value</code>。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeHandler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// let sizing = this.dataset.sizing ? this.dataset.sizing : '';</span></span><br><span class="line">  <span class="keyword">let</span> sizing = <span class="keyword">this</span>.dataset.sizing || <span class="string">''</span>; <span class="comment">//較精簡的寫法，相當於if判斷式，結果同上</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.documentElement.style.setProperty(<span class="string">`--<span class="subst">$&#123; <span class="keyword">this</span>.name &#125;</span>`</span>, <span class="keyword">this</span>.value + sizing)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>這邊的<code>this</code>指向的是觸發<code>changeHandler()</code>的元素，分別抓出該元素的<code>name</code>、<code>value</code>值。</p>
-<blockquote>
-<p><code>document.documentElement</code>會回傳目前文件 (document）中的根元素（Element），在這就是 HTML 文件中的 &lt;html> 元素。</p>
-</blockquote>
-<p>若對<code>data-* attribute</code>不熟悉，<a href="https://pjchender.blogspot.com/2017/01/html-5-data-attribute.html" target="_blank" rel="noopener">這篇文章</a> 有詳盡的說明。</p>
-<p>到這，就完成啦!</p>
-<hr>
-<h2 id="完整-JS"><a href="#完整-JS" class="headerlink" title="完整 JS"></a><center>完整 JS</center></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> inputs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.controls input'</span>);</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeHandler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> sizing = <span class="keyword">this</span>.dataset.sizing || <span class="string">''</span>;</span><br><span class="line">  <span class="built_in">document</span>.documentElement.style.setProperty(<span class="string">`--<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>, <span class="keyword">this</span>.value + sizing);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inputs.forEach(<span class="function"><span class="params">input</span> =&gt;</span> &#123;</span><br><span class="line">  input.addEventListener(<span class="string">'change'</span>, changeHandler);</span><br><span class="line">  input.addEventListener(<span class="string">'mousemove'</span>, changeHandler);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="完整-JS"><a href="#完整-JS" class="headerlink" title="完整 JS"></a><center>完整 JS</center></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removetrasition</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(e.propertyName !== <span class="string">'transform'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  e.target.classList.remove(<span class="string">'playing'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">playSound</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">let</span> audio = <span class="built_in">document</span>.querySelector(<span class="string">`audio[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!audio) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span>(!btn) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(btn.classList.contains(<span class="string">'cut'</span>))<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  btn.classList.add(<span class="string">'playing'</span>);</span><br><span class="line">  btn.classList.add(<span class="string">'cut'</span>);</span><br><span class="line">  audio.currentTime = <span class="number">0</span>;</span><br><span class="line">  audio.play();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reCut</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">if</span>(!btn) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  btn.classList.remove(<span class="string">'cut'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//音樂播放結束時移除動畫</span></span><br><span class="line"><span class="keyword">let</span> keys=<span class="built_in">document</span>.querySelectorAll(<span class="string">'.key'</span>);</span><br><span class="line">keys.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  key.addEventListener(<span class="string">'transitionend'</span>,removetrasition)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'keydown'</span>,playSound);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'keyup'</span>,reCut);</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="相關連結"><a href="#相關連結" class="headerlink" title="相關連結"></a><center>相關連結</center></h2><ul>
-<li><a href="https://www.w3schools.com/css/css3_variables.asp" target="_blank" rel="noopener">w3school CSS Variables 介紹</a></li>
-<li><a href="https://pjchender.blogspot.com/2017/01/html-5-data-attribute.html" target="_blank" rel="noopener">data-* 及 dataset 相關介紹</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty" target="_blank" rel="noopener">MDN setProperty()</a></li>
-<li><a href="https://yehjing.github.io/Blog/2018/js30-2.html/">回到 [JS30] - Day2</a></li>
-<li><a href="https://yehjing.github.io/Blog/2018/js30-4.html/">繼續 [JS30] - Day4</a></li>
+<li><a href="http://keycode.info/" target="_blank" rel="noopener">查詢 Keycode</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/transitionend" target="_blank" rel="noopener">MDN transitionend</a></li>
+<li><a href="https://yehjing.github.io/Blog/2018/js30-2.html/">繼續 [JS30] - Day2</a></li>
 </ul>
 
     </article>
@@ -458,16 +435,16 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/Blog/2018/ck13l10id0004louycnt563be/" title= [JS30] Day 2: CSS + JS Clock >
-                    <div class="prevTitle">[JS30] Day 2: CSS + JS Clock</div>
+                <a href= "/Blog/2018/ck13lk6ob0001vsuyrcgtu18t/" title= Javascript Array Method >
+                    <div class="prevTitle">Javascript Array Method</div>
                 </a>
             
         </li>
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/Blog/2018/ck13l10ie0005louyocavdb6z/" title= [JS30] Day 4: Array Cardio Day 1 >
-                    <div class="nextTitle">[JS30] Day 4: Array Cardio Day 1</div>
+                <a href= "/Blog/2018/ck13lk6o50000vsuy3buwwj46/" title= [JS30] Day 2: CSS + JS Clock >
+                    <div class="nextTitle">[JS30] Day 2: CSS + JS Clock</div>
                 </a>
             
         </li>
@@ -585,7 +562,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-3-Playing-with-CSS-Variables-and-JS"><span class="toc-number">1.</span> <span class="toc-text">Day 3: Playing with CSS Variables and JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設定-CSS-變數"><span class="toc-number">2.</span> <span class="toc-text">設定 CSS 變數</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-Variables"><span class="toc-number">2.1.</span> <span class="toc-text">CSS - Variables</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用-JS-改變-CSS-變數的值"><span class="toc-number">3.</span> <span class="toc-text">利用 JS 改變 CSS 變數的值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-對所有-input-註冊監聽事件"><span class="toc-number">3.1.</span> <span class="toc-text">Step1 : 對所有 input 註冊監聽事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-寫出監聽器並改變-CSS-變數"><span class="toc-number">3.2.</span> <span class="toc-text">Step2 : 寫出監聽器並改變 CSS 變數</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整-JS"><span class="toc-number">4.</span> <span class="toc-text">完整 JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">5.</span> <span class="toc-text">相關連結</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-1-JavaScript-Drum-Kit"><span class="toc-number">1.</span> <span class="toc-text">Day 1: JavaScript Drum Kit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#播放、增加動態效果"><span class="toc-number">2.</span> <span class="toc-text">播放、增加動態效果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-偵測鍵盤按鍵Keycode"><span class="toc-number">2.1.</span> <span class="toc-text">Step1 : 偵測鍵盤按鍵Keycode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-播放聲音及改變樣式"><span class="toc-number">2.2.</span> <span class="toc-text">Step2 : 播放聲音及改變樣式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整-JS"><span class="toc-number">3.</span> <span class="toc-text">完整 JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">4.</span> <span class="toc-text">相關連結</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -598,6 +575,12 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
     
     
     
@@ -723,12 +706,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck13l10is000alouykta5wdrw/" >演算法與時間複雜度</a>
+            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck13lk6s7000avsuygcqyq2vw/" >演算法與時間複雜度</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck13l10i40000louyfu1tlud8/" >JS 複製 DIV 內容</a>
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck13lk6og0007vsuy743wj2qa/" >JS 複製 DIV 內容</a>
         </li>
     
     
@@ -742,37 +725,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck13l10if0007louywuncqjwr/" >[JS30] Day 5: Flex Panels Image Gallery</a>
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6oe0005vsuy4026tll0/" >[JS30] Day 5: Flex Panels Image Gallery</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck13l10ie0005louyocavdb6z/" >[JS30] Day 4: Array Cardio Day 1</a>
+            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6oe0004vsuyned3n8qx/" >[JS30] Day 4: Array Cardio Day 1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck13l10ib0002louyyd3f3w7a/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6od0003vsuycq5t7h52/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck13l10id0004louycnt563be/" >[JS30] Day 2: CSS + JS Clock</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6o50000vsuy3buwwj46/" >[JS30] Day 2: CSS + JS Clock</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck13l10ia0001louyaj30cwo4/" >[JS30] Day 1: JavaScript Drum Kit</a>
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6oc0002vsuyehpz5hdv/" >[JS30] Day 1: JavaScript Drum Kit</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck13l10ic0003louykph1q02w/" >Javascript Array Method</a>
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6ob0001vsuyrcgtu18t/" >Javascript Array Method</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck13l10ie0006louyd3r94lup/" >如何用hexo搭建部落格並連結GitHub Pages</a>
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6of0006vsuy2ch1umcu/" >如何用hexo搭建部落格並連結GitHub Pages</a>
         </li>
     
     </div>
