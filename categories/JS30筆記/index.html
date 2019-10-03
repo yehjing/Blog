@@ -357,20 +357,27 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/ck1aop8jy00003wuy3pnjgben/" >
+        <a class="abstract-title" href = "/Blog/2018/ck1aop8k900043wuyogd639ci/" >
             
-                <span>Javascript Array Method</span>
+                <span>[JS30] Day 5: Flex Panels Image Gallery</span>
         </a>
         <div class="abstract-content">
-            Javascript Array Method在工作中，常常會遇到需要處理陣列的資料時候，所以熟悉 Javascript 裡的陣列方法是必須的，在剛學習時，常常會忘記也不清楚這些方法return回來的結果是甚麼、會不會改變原陣列中的資料。  
-所以在這邊做了個筆記，整理一下自己常使用的 JS 陣列方法，方便自己以後能夠快速查找，也希望對參考此篇文章的讀者有幫助。(有些自己不常用的陣列方法這邊就先不提，若未來常使用到會再做補充)
+            
+Day 5: Flex Panels Image Gallery用 CSS-Flex 與 JS 製作一個點擊後會展開的圖片展示效果
 
- 陣列內容操作在開頭或結尾處添加或移除一個元素 push()、pop()、unshift()、shift()如果要在陣列的開頭或結尾處添加或移除一個元素，這邊介...
+主要練習:
+
+CSS - Flexbox
+JS - transitionend event
+
+
+CSSStep 1 :首先可以看到 HTML 中，有一個 .panels 包覆著 5 個 .panel，預覽畫面時，發現畫面是由上到下排列的，但我們要的是這 5 個 .panel 橫向並等寬的佔滿畫面，所以這時我們在 .panels 上使用 display: flex 屬性，讓內層子元素都變成 flex 屬性。
+Step 2 :這時會看到 .panel 變成橫...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/05</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/28</span>
             </div>
             <!-- tags  -->
             
@@ -378,7 +385,163 @@
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ES6">ES6</a>
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/Blog/2018/ck1aop8kd00073wuyr7qw9prf/" >
+            
+                <span>[JS30] Day 4: Array Cardio Day 1</span>
+        </a>
+        <div class="abstract-content">
+            
+Day 4: Array Cardio Day 1對於 ECMAScript5 增加的陣列方法做進一步的認識。
+
+在先前的文章中，有針對過這些陣列的基本用法做過詳細的介紹，所以這邊有的習題不會講解的那麼仔細，如果對以下幾個陣列方法還不熟悉的，可以先去看看這篇文章。
+主要練習:
+
+JS - Array.prototype.filter()
+JS - Array.prototype.map()
+JS - Array.prototype.sort()
+JS - Array.prototype.reduce()
+JS - Array.prototype.forEach()
+
+
+題目內容首先從草...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/Blog/2018/ck1aop8k600023wuynfrjzft6/" >
+            
+                <span>[JS30] Day 3: Playing with CSS Variables and JS</span>
+        </a>
+        <div class="abstract-content">
+            
+Day 3: Playing with CSS Variables and JS學習使用 CSS 變數並搭配 JS 
+
+主要練習:
+
+CSS - Variables
+HTML5 - data-* attribute
+JS - element.dataset.camelCasedName
+JS - CSSStyleDeclaration.setProperty()
+JS - Document.documentElement
+
+
+設定 CSS 變數CSS - Variables在原生的 CSS 中我們也可以使用變數的概念，相較於 CSS 前處理器（例如，SASS/SCSS），CSS 前處理...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/Blog/2018/ck1aop8k700033wuyck0eu1q8/" >
+            
+                <span>[JS30] Day 2: CSS + JS Clock</span>
+        </a>
+        <div class="abstract-content">
+            
+Day 2: CSS + JS Clock使用 JS 及 CSS 製作出一個簡易的時鐘。
+
+主要練習:
+
+CSS - transform
+JS - Date
+JS - HTMLElement.style
+JS - window.setInterval()
+
+
+設定 CSS 樣式CSS - transform開啟專案後，可以看到所有只指針都指在9點鐘的方向，這時我們需要用 CSS  transform的功能去調整指針的位置到12點鐘方向。
+在 CSS 中找到 .hand 並加入以下程式碼:
+12345.hand &#123;  transform-origin: 100%; /* 將元素...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/27</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/Blog/2018/ck1aop8k400013wuyp5i2vx7g/" >
+            
+                <span>[JS30] Day 1: JavaScript Drum Kit</span>
+        </a>
+        <div class="abstract-content">
+            
+Day 1: JavaScript Drum Kit透過 JavaScript 模擬一個打鼓的頁面，在按下按鍵的同時，頁面上對應的字母按鈕會變大並加上邊框，同時具有樂器的聲音。
+
+播放、增加動態效果Step1 : 偵測鍵盤按鍵Keycode為了知道我們鍵盤按鍵所對應的 Keycode ，所以我們先建立一個 window 的監聽事件去監聽’按下鍵盤’這個動作 (keydown)，所然後再用 console.log(e.keyCode) 來看看所對應的 Keycode。
+12window.addEventListener('keydown', e =&gt; console.log(e.k...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/12</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
     
 </div>
             

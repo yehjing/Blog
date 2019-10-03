@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Jing&#39;s 技術筆記</title>
+    <title>如何用hexo搭建部落格並連結GitHub Pages · Jing&#39;s 技術筆記</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -214,12 +214,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/Blog/" >Jing&#39;s 技術筆記</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">如何用hexo搭建部落格並連結GitHub Pages</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/Blog/>Jing's 技術筆記</a>
 </header>
@@ -231,24 +242,70 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/Blog/)"></div>
+    <div class="site-intro-img" style="background-image: url(/Blog/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            如何用hexo搭建部落格並連結GitHub Pages
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Hexo">Hexo</a>
+    
+</div>
+                
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/05/25</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -349,207 +406,72 @@
 </script>        
         <img class="loading" src="/Blog/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/ck1aokout0004touys27makk2/" >
-            
-                <span>[JS30] Day 5: Flex Panels Image Gallery</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 5: Flex Panels Image Gallery用 CSS-Flex 與 JS 製作一個點擊後會展開的圖片展示效果
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="如何用hexo搭建部落格並連結GitHub-Pages"><a href="#如何用hexo搭建部落格並連結GitHub-Pages" class="headerlink" title="如何用hexo搭建部落格並連結GitHub Pages"></a><center>如何用hexo搭建部落格並連結GitHub Pages</center></h2><h2 id="Hexo-簡介與安裝"><a href="#Hexo-簡介與安裝" class="headerlink" title=" Hexo 簡介與安裝"></a><center> Hexo 簡介與安裝</center></h2><h3 id="什麼是-Hexo"><a href="#什麼是-Hexo" class="headerlink" title="什麼是 Hexo"></a><center>什麼是 Hexo</center></h3><p>Hexo 是一個快速、簡單且強大的網誌框架。Hexo 使用 Markdown（或其他渲染引擎）解析您的文章，並在幾秒鐘內，透過漂亮的主題產生靜態檔案。</p>
+<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a><center>安裝</center></h3><p>首先電腦必須安裝下列軟體:</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+</ul>
+<p>安裝完成後透過終端機執行以下指令，藉由npm即可完成 Hexo 的安裝。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<h3 id="建立"><a href="#建立" class="headerlink" title="建立"></a><center>建立</center></h3><p>創建我的部落格:<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog        //創建一個名為blog的資料夾</span><br><span class="line">$ <span class="built_in">cd</span> blog               //切換到剛創建的資料夾路徑</span><br><span class="line">$ npm install           //執行npm install</span><br><span class="line">$ npm install hexo-deployer-git --save      //git部署插件</span><br></pre></td></tr></table></figure></p>
+<p>建立完成後資料夾內會有以下檔案:<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml         //主要設定檔</span><br><span class="line">├── package.json</span><br><span class="line">├── node_modules        //相依套件</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts          //撰寫的所有文章都放在這個資料夾</span><br><span class="line">└── themes              //主題</span><br></pre></td></tr></table></figure></p>
+<p><code>_config.yml</code> 是 Hexo 主要設定檔 可修改網站<a href="https://hexo.io/zh-tw/docs/configuration.html" target="_blank" rel="noopener">配置</a></p>
+<p>此時在 blog 資料夾下執行:<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
+<p>這時打開瀏覽器在網址列輸入 localhost:4000 就可以看到自己剛創建好的部落格啦。</p>
+<hr>
+<h2 id="用-GitHub-Pages-與-Hexo-相聯"><a href="#用-GitHub-Pages-與-Hexo-相聯" class="headerlink" title="用 GitHub Pages 與 Hexo 相聯"></a><center>用 GitHub Pages 與 Hexo 相聯</center></h2><h3 id="創建新的倉庫並與-Hexo-關聯"><a href="#創建新的倉庫並與-Hexo-關聯" class="headerlink" title="創建新的倉庫並與 Hexo 關聯"></a><center>創建新的倉庫並與 Hexo 關聯</center></h3><p>首先，先創建一個 GitHub 的帳號，然後創建一個新的倉庫。</p>
+<img src="/Blog/2018/ck1aop8ka00053wuy1eo7sz77/new_repo.png">
+<p>接著在站點配置文件<code>_config.yml</code>找到<code>deploy</code>這個欄位。</p>
+<img src="/Blog/2018/ck1aop8ka00053wuy1eo7sz77/deploy.png">
+<p>這裡配置文件的設定就是給<code>hexo d</code>這個指令做相對應的配置，讓hexo知道你要把blog部屬到哪個位置。</p>
+<p>接著執行以下2個指令:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g        //生成靜態檔案</span><br><span class="line">$ hexo d        //佈署至關聯的GitHub</span><br></pre></td></tr></table></figure>
+<p>此時在GitHub的新倉庫裡應該會看到剛剛所佈署的靜態文件。</p>
+<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a><center>GitHub Pages</center></h3><p>在GitHub倉庫中找到Settings選項。</p>
+<img src="/Blog/2018/ck1aop8ka00053wuy1eo7sz77/settings.png">
+<p>將畫面往下拉找到GitHub Pages，選擇master branch，選擇好後點擊save，這時重新整理頁面，就能看到自己GitHub Pages的網址了，點擊聯結進去後就是一個自己新創好的部落格囉!</p>
+<img src="/Blog/2018/ck1aop8ka00053wuy1eo7sz77/github-pages.png">
+<p>之後發表完新的文章後一樣是<code>hexo g</code>轉成靜態文件，然後再<code>hexo d</code>佈署到GitHub就可以在GitHub Pages看到自己所發表的文章囉!</p>
+<hr>
+<h2 id="相關連結"><a href="#相關連結" class="headerlink" title="相關連結"></a><center>相關連結</center></h2><ul>
+<li><p>相關的站點<a href="https://hexo.io/zh-tw/docs/configuration.html" target="_blank" rel="noopener">文件設定</a>及<a href="https://hexo.io/zh-tw/docs/themes.html" target="_blank" rel="noopener">主題更換</a>在Hexo官方文件中有詳細說明。</p>
+</li>
+<li><p><a href="https://hexo.io/docs/index.html" target="_blank" rel="noopener">Hexo官方文件</a></p>
+</li>
+</ul>
 
-主要練習:
-
-CSS - Flexbox
-JS - transitionend event
-
-
-CSSStep 1 :首先可以看到 HTML 中，有一個 .panels 包覆著 5 個 .panel，預覽畫面時，發現畫面是由上到下排列的，但我們要的是這 5 個 .panel 橫向並等寬的佔滿畫面，所以這時我們在 .panels 上使用 display: flex 屬性，讓內層子元素都變成 flex 屬性。
-Step 2 :這時會看到 .panel 變成橫...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/ck1aokouu0005touytrnoqdlx/" >
-            
-                <span>[JS30] Day 4: Array Cardio Day 1</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 4: Array Cardio Day 1對於 ECMAScript5 增加的陣列方法做進一步的認識。
-
-在先前的文章中，有針對過這些陣列的基本用法做過詳細的介紹，所以這邊有的習題不會講解的那麼仔細，如果對以下幾個陣列方法還不熟悉的，可以先去看看這篇文章。
-主要練習:
-
-JS - Array.prototype.filter()
-JS - Array.prototype.map()
-JS - Array.prototype.sort()
-JS - Array.prototype.reduce()
-JS - Array.prototype.forEach()
-
-
-題目內容首先從草...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/ck1aokouq0002touy105tqdw6/" >
-            
-                <span>[JS30] Day 3: Playing with CSS Variables and JS</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 3: Playing with CSS Variables and JS學習使用 CSS 變數並搭配 JS 
-
-主要練習:
-
-CSS - Variables
-HTML5 - data-* attribute
-JS - element.dataset.camelCasedName
-JS - CSSStyleDeclaration.setProperty()
-JS - Document.documentElement
-
-
-設定 CSS 變數CSS - Variables在原生的 CSS 中我們也可以使用變數的概念，相較於 CSS 前處理器（例如，SASS/SCSS），CSS 前處理...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/ck1aokous0003touypg9r6gak/" >
-            
-                <span>[JS30] Day 2: CSS + JS Clock</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 2: CSS + JS Clock使用 JS 及 CSS 製作出一個簡易的時鐘。
-
-主要練習:
-
-CSS - transform
-JS - Date
-JS - HTMLElement.style
-JS - window.setInterval()
-
-
-設定 CSS 樣式CSS - transform開啟專案後，可以看到所有只指針都指在9點鐘的方向，這時我們需要用 CSS  transform的功能去調整指針的位置到12點鐘方向。
-在 CSS 中找到 .hand 並加入以下程式碼:
-12345.hand &#123;  transform-origin: 100%; /* 將元素...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/ck1aokoup0001touyp8wsj969/" >
-            
-                <span>[JS30] Day 1: JavaScript Drum Kit</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 1: JavaScript Drum Kit透過 JavaScript 模擬一個打鼓的頁面，在按下按鍵的同時，頁面上對應的字母按鈕會變大並加上邊框，同時具有樂器的聲音。
-
-播放、增加動態效果Step1 : 偵測鍵盤按鍵Keycode為了知道我們鍵盤按鍵所對應的 Keycode ，所以我們先建立一個 window 的監聽事件去監聽’按下鍵盤’這個動作 (keydown)，所然後再用 console.log(e.keyCode) 來看看所對應的 Keycode。
-12window.addEventListener('keydown', e =&gt; console.log(e.k...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="previous">
+            
+        </li>
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/Blog/2018/ck1aop8jy00003wuy3pnjgben/" title= Javascript Array Method >
+                    <div class="nextTitle">Javascript Array Method</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -619,6 +541,24 @@ Day 1: JavaScript Drum Kit透過 JavaScript 模擬一個打鼓的頁面，在按
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何用hexo搭建部落格並連結GitHub-Pages"><span class="toc-number">1.</span> <span class="toc-text">如何用hexo搭建部落格並連結GitHub Pages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-簡介與安裝"><span class="toc-number">2.</span> <span class="toc-text"> Hexo 簡介與安裝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什麼是-Hexo"><span class="toc-number">2.1.</span> <span class="toc-text">什麼是 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝"><span class="toc-number">2.2.</span> <span class="toc-text">安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立"><span class="toc-number">2.3.</span> <span class="toc-text">建立</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用-GitHub-Pages-與-Hexo-相聯"><span class="toc-number">3.</span> <span class="toc-text">用 GitHub Pages 與 Hexo 相聯</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#創建新的倉庫並與-Hexo-關聯"><span class="toc-number">3.1.</span> <span class="toc-text">創建新的倉庫並與 Hexo 關聯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub-Pages"><span class="toc-number">3.2.</span> <span class="toc-text">GitHub Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">4.</span> <span class="toc-text">相關連結</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -761,12 +701,12 @@ Day 1: JavaScript Drum Kit透過 JavaScript 模擬一個打鼓的頁面，在按
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck1aokoz8000atouyodivrk6r/" >演算法與時間複雜度</a>
+            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck1aop8oy000a3wuyxa12qo89/" >演算法與時間複雜度</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck1aokouw0007touy7mct1di5/" >JS 複製 DIV 內容</a>
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck1aop8kc00063wuyz04stucv/" >JS 複製 DIV 內容</a>
         </li>
     
     
@@ -780,37 +720,37 @@ Day 1: JavaScript Drum Kit透過 JavaScript 模擬一個打鼓的頁面，在按
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokout0004touys27makk2/" >[JS30] Day 5: Flex Panels Image Gallery</a>
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k900043wuyogd639ci/" >[JS30] Day 5: Flex Panels Image Gallery</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouu0005touytrnoqdlx/" >[JS30] Day 4: Array Cardio Day 1</a>
+            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8kd00073wuyr7qw9prf/" >[JS30] Day 4: Array Cardio Day 1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouq0002touy105tqdw6/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k600023wuynfrjzft6/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck1aokous0003touypg9r6gak/" >[JS30] Day 2: CSS + JS Clock</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k700033wuyck0eu1q8/" >[JS30] Day 2: CSS + JS Clock</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoup0001touyp8wsj969/" >[JS30] Day 1: JavaScript Drum Kit</a>
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k400013wuyp5i2vx7g/" >[JS30] Day 1: JavaScript Drum Kit</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoui0000touyma4k4bnn/" >Javascript Array Method</a>
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8jy00003wuy3pnjgben/" >Javascript Array Method</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouw0006touyzrtg7zkw/" >如何用hexo搭建部落格並連結GitHub Pages</a>
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8ka00053wuy1eo7sz77/" >如何用hexo搭建部落格並連結GitHub Pages</a>
         </li>
     
     </div>
@@ -861,7 +801,7 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
     
-        <span class="sidebar-category-name" data-categories="JS30-筆記"><span class="iconfont-archer">&#xe60a;</span>JS30-筆記</span>
+        <span class="sidebar-category-name" data-categories="JS30筆記"><span class="iconfont-archer">&#xe60a;</span>JS30筆記</span>
     
         <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
     
@@ -897,6 +837,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/Blog/scripts/share.js" async></script>    
      
     </body>
 </html>

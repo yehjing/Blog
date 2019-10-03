@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>[JS30] Day 4: Array Cardio Day 1 · Jing&#39;s 技術筆記</title>
+    <title>[JS30] Day 5: Flex Panels Image Gallery · Jing&#39;s 技術筆記</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -228,7 +228,7 @@
                 <a href="/Blog/" >Jing&#39;s 技術筆記</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">[JS30] Day 4: Array Cardio Day 1</a>
+                <a href="#" class="post-name">[JS30] Day 5: Flex Panels Image Gallery</a>
             </div>
     </div>
     
@@ -258,7 +258,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            [JS30] Day 4: Array Cardio Day 1
+            [JS30] Day 5: Flex Panels Image Gallery
             <!-- 404 -->
             
         </h1>
@@ -284,7 +284,7 @@ height:50vh;
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/08/25</span>
+                    <span class="post-intro-time">2018/08/28</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -408,44 +408,35 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <img src="/Blog/2018/ck1aokouu0005touytrnoqdlx/title.png">
-<h2 id="Day-4-Array-Cardio-Day-1"><a href="#Day-4-Array-Cardio-Day-1" class="headerlink" title="Day 4: Array Cardio Day 1"></a><center>Day 4: Array Cardio Day 1</center></h2><center>對於 ECMAScript5 增加的陣列方法做進一步的認識。</center>
+        <img src="/Blog/2018/ck1aop8k900043wuyogd639ci/title.png">
+<h2 id="Day-5-Flex-Panels-Image-Gallery"><a href="#Day-5-Flex-Panels-Image-Gallery" class="headerlink" title="Day 5: Flex Panels Image Gallery"></a><center>Day 5: Flex Panels Image Gallery</center></h2><center>用 CSS-Flex 與 JS 製作一個點擊後會展開的圖片展示效果</center>
 
-<p>在先前的文章中，有針對過這些陣列的基本用法做過詳細的介紹，所以這邊有的習題不會講解的那麼仔細，如果對以下幾個陣列方法還不熟悉的，可以先去看看<a href="https://yehjing.github.io/Blog/2018/Javascript-Array-Method.html/">這篇</a>文章。</p>
 <p>主要練習:</p>
 <ul>
-<li>JS - Array.prototype.filter()</li>
-<li>JS - Array.prototype.map()</li>
-<li>JS - Array.prototype.sort()</li>
-<li>JS - Array.prototype.reduce()</li>
-<li>JS - Array.prototype.forEach()</li>
+<li>CSS - Flexbox</li>
+<li>JS - transitionend event</li>
 </ul>
 <hr>
-<h2 id="題目內容"><a href="#題目內容" class="headerlink" title="題目內容"></a><center>題目內容</center></h2><p>首先從草稿中可以看到作者已經先給了兩個陣列。<br>第一個陣列 inventors ，是由人物資料組合而成的物件，作為元素所組成的陣列。<br>第二個陣列 people ，則是由名字字串作為元素所組合而成。</p>
-<h3 id="第-1-題"><a href="#第-1-題" class="headerlink" title="第 1 題 :"></a>第 1 題 :</h3><p>使用 <code>filter()</code> 方法從 inventors 這個陣列中篩選出出生在 1500 年代的人。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newInv = inventors.filter(<span class="function"><span class="params">inventor</span> =&gt;</span> inventor.year &gt;= <span class="number">1500</span> &amp;&amp; inventor.year &lt; <span class="number">1600</span>);</span><br><span class="line"><span class="built_in">console</span>.log(newInv);</span><br></pre></td></tr></table></figure>
-<h3 id="第-2-題"><a href="#第-2-題" class="headerlink" title="第 2 題 :"></a>第 2 題 :</h3><p>從 inventors 陣列中取得發明者的年齡和姓氏，並回傳一個陣列。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fullName = inventors.map(<span class="function"><span class="params">inventor</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;inventor.first&#125;</span> <span class="subst">$&#123;inventor.last&#125;</span>`</span>);</span><br><span class="line"><span class="built_in">console</span>.log(fullName);</span><br></pre></td></tr></table></figure>
-<h3 id="第-3-題"><a href="#第-3-題" class="headerlink" title="第 3 題 :"></a>第 3 題 :</h3><p>從 inventors 陣列中將發明者的年齡由大到小做排序。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> years = inventors.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.year - b.year);</span><br><span class="line"><span class="built_in">console</span>.log(years);</span><br></pre></td></tr></table></figure>
-<h3 id="第-4-題"><a href="#第-4-題" class="headerlink" title="第 4 題 :"></a>第 4 題 :</h3><p>加總所有發明者的年紀。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> totalYears = inventors.reduce(<span class="function">(<span class="params">total, inv</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> total + inv.passed - inv.year;</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(totalYears);</span><br></pre></td></tr></table></figure>
-<h3 id="第-5-題"><a href="#第-5-題" class="headerlink" title="第 5 題 :"></a>第 5 題 :</h3><p>計算所有發明者的壽命，並進行排序。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> yearsLived = inventors.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (a.passed - a.year) - (b.passed - b.year));</span><br><span class="line"><span class="built_in">console</span>.log(yearsLived);</span><br></pre></td></tr></table></figure>
-<h3 id="第-6-題"><a href="#第-6-題" class="headerlink" title="第 6 題 :"></a>第 6 題 :</h3><p>列出 wiki 中巴黎所有包含 ‘de’ 的路名。<br><a href="https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris</a></p>
-<p>這題先用 <code>querySelectorAll()</code> 選取對象元件，<br>再利用的 <code>Array.from</code> 將 nodeList 轉為 Array，<br>才能對他使用 <code>map()</code> 操作(map是Array的方法，nodeList沒有)，<br>同時再用 <code>filter()</code> 與 <code>includes())</code> 來做文字的篩選，若存在’de’就回傳 <code>true</code> 加入陣列。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> category = <span class="built_in">document</span>.querySelector(<span class="string">'.mw-category'</span>);</span><br><span class="line"><span class="keyword">const</span> links = <span class="built_in">Array</span>.from(category.querySelectorAll(<span class="string">'a'</span>));</span><br><span class="line"><span class="keyword">const</span> de = links</span><br><span class="line">            .map(<span class="function"><span class="params">link</span> =&gt;</span> link.textContent)</span><br><span class="line">            .filter(<span class="function"><span class="params">streetName</span> =&gt;</span> streetName.includes(<span class="string">'de'</span>));</span><br></pre></td></tr></table></figure>
-<h3 id="第-7-題"><a href="#第-7-題" class="headerlink" title="第 7 題 :"></a>第 7 題 :</h3><p>將 people 陣列中，人名的 lastName 按照字母順序作排列。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sortPeople = people.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> aAry = a.split(<span class="string">", "</span>);</span><br><span class="line">  <span class="keyword">const</span> bAry = b.split(<span class="string">", "</span>);</span><br><span class="line">  <span class="keyword">return</span> aAry[<span class="number">1</span>] &gt; bAry[<span class="number">1</span>] ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(sortPeople);</span><br></pre></td></tr></table></figure>
-<h3 id="第-8-題"><a href="#第-8-題" class="headerlink" title="第 8 題 :"></a>第 8 題 :</h3><p>計算出 data 陣列中每個項目的總數。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = [<span class="string">'car'</span>, <span class="string">'car'</span>, <span class="string">'truck'</span>, <span class="string">'truck'</span>, <span class="string">'bike'</span>, <span class="string">'walk'</span>, <span class="string">'car'</span>, <span class="string">'van'</span>, <span class="string">'bike'</span>, <span class="string">'walk'</span>, <span class="string">'car'</span>, <span class="string">'van'</span>, <span class="string">'car'</span>, <span class="string">'truck'</span>];</span><br></pre></td></tr></table></figure>
-<p>這邊自己想說練習一下使用 <code>forEach()</code> 方法來做 :<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line">data.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!obj[item]) &#123;</span><br><span class="line">    obj[item] = <span class="number">1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    obj[item]++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></table></figure></p>
-<p>也是可以使用 <code>reduce()</code> 發法 :<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> transportation = data.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">obj, item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!obj[item]) &#123;</span><br><span class="line">    obj[item] = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  obj[item]++;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;, &#123;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(transportation);</span><br></pre></td></tr></table></figure></p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a><center>CSS</center></h2><h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1 :"></a>Step 1 :</h3><p>首先可以看到 HTML 中，有一個 <code>.panels</code> 包覆著 5 個 <code>.panel</code>，預覽畫面時，發現畫面是由上到下排列的，但我們要的是這 5 個 <code>.panel</code> 橫向並等寬的佔滿畫面，所以這時我們在 <code>.panels</code> 上使用 <code>display: flex</code> 屬性，讓內層子元素都變成 <code>flex</code> 屬性。</p>
+<h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2 :"></a>Step 2 :</h3><p>這時會看到 <code>.panel</code> 變成橫向排列，但卻沒有占滿整個畫面，所以現在我們要在 <code>.panel</code> 上設置元素的比例，並讓擠在上方的文字置中顯示，所以加上 <code>flex: 1</code> 及 <code>justify-content: center</code> 。</p>
+<h3 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3 :"></a>Step 3 :</h3><p>接下來要讓文字垂直排列並平均分配在 <code>.panel</code> 中，所以再加上 <code>display: flex</code> 及 <code>flex-direction: column</code> 。</p>
+<h3 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4 :"></a>Step 4 :</h3><p>對 <code>.panel</code> 中最上面及最下面 <code>p</code> 元素裡的文字做位移效果，讓他在可視範圍外，並再加上一個 <code>.active</code> 的 class 以利等等搭配 JS 讓元素移回可視範圍內。<br>接著也在 <code>.panel.open</code> 中加上 <code>flex: 5</code> 使其觸發時會有展開的動畫。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.panel</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translateY</span>(-100%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.active</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translateY</span>(0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translateY</span>(100%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.active</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translateY</span>(0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.open</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>:<span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a><center>JS</center></h2><h3 id="Step-1-1"><a href="#Step-1-1" class="headerlink" title="Step 1 :"></a>Step 1 :</h3><p>先抓取到 <code>.panel</code> 所有節點，接著設計一個可以透過新增/移除 class 方法來製作互動效果的 function 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> panels = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.panel'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleOpen</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.classList.toggle(<span class="string">'open'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleActive</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (e.propertyName.includes(<span class="string">'flex'</span>)) &#123;</span><br><span class="line">    <span class="keyword">this</span>.classList.toggle(<span class="string">'active'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>e.propertyName可以抓到觸發transitionend的屬性名稱，<br>而 <code>.open</code> 中觸發的 <code>transition</code> 屬性有兩個，分別為 <code>font</code> 與 <code>flex</code><br>要使其在 flex 之後在觸發的話，就要判斷進來的是不是 <code>flex</code><br>但因為 <code>transition: flex 0.7s..</code> 這段在 sarafi 是 <code>flex</code> ，而其他瀏覽器為 <code>flex-grow</code><br>所以不能用 <code>e.property === &#39;flex&#39;</code> 來寫，會使其中一方瀏覽器抓不到值，<br>作者提到因為兩者都有 flex 的字眼，所以利用 <code>.includes(&#39;flex&#39;)</code> 來判斷， 只要 <code>e.property</code> 有包含到 flex 的字串就使其通過判斷，加入動畫效果。</p>
+</blockquote>
+<h3 id="Step-2-1"><a href="#Step-2-1" class="headerlink" title="Step 2 :"></a>Step 2 :</h3><p>加上監聽事件，觸發上方的 function 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">panels.forEach(<span class="function"><span class="params">panel</span> =&gt;</span> panel.addEventListener(<span class="string">'click'</span>, toggleOpen))</span><br><span class="line">panels.forEach(<span class="function"><span class="params">panel</span> =&gt;</span> panel.addEventListener(<span class="string">'transitionend'</span>, toggleActive));</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="完整-JS"><a href="#完整-JS" class="headerlink" title="完整 JS"></a><center>完整 JS</center></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> panels = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.panel'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleOpen</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.classList.toggle(<span class="string">'open'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleActive</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// console.log(e.propertyName);</span></span><br><span class="line">  <span class="keyword">if</span> (e.propertyName.includes(<span class="string">'flex'</span>)) &#123;</span><br><span class="line">    <span class="keyword">this</span>.classList.toggle(<span class="string">'active'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">panels.forEach(<span class="function"><span class="params">panel</span> =&gt;</span> panel.addEventListener(<span class="string">'click'</span>, toggleOpen))</span><br><span class="line">panels.forEach(<span class="function"><span class="params">panel</span> =&gt;</span> panel.addEventListener(<span class="string">'transitionend'</span>, toggleActive));</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="相關連結"><a href="#相關連結" class="headerlink" title="相關連結"></a><center>相關連結</center></h2><ul>
-<li><a href="https://yehjing.github.io/Blog/2018/Javascript-Array-Method.html/">Javascript Array Method</a></li>
-<li><a href="https://yehjing.github.io/Blog/2018/js30-3.html/">回到 [JS30] - Day3</a></li>
-<li><a href="https://yehjing.github.io/Blog/2018/js30-5.html/">繼續 [JS30] - Day5</a></li>
+<li><a href="https://wcc723.github.io/css/2017/07/21/css-flex/" target="_blank" rel="noopener">CSS Flex</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/transitionend" target="_blank" rel="noopener">MDN transitionend</a></li>
+<li><a href="https://yehjing.github.io/Blog/2018/js30-4.html/">回到 [JS30] - Day4</a></li>
+<li><a href="https://yehjing.github.io/Blog/2018/js30-6.html/">繼續 [JS30] - Day6</a></li>
 </ul>
 
     </article>
@@ -456,16 +447,16 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/Blog/2018/ck1aokouq0002touy105tqdw6/" title= [JS30] Day 3: Playing with CSS Variables and JS >
-                    <div class="prevTitle">[JS30] Day 3: Playing with CSS Variables and JS</div>
+                <a href= "/Blog/2018/ck1aop8kd00073wuyr7qw9prf/" title= [JS30] Day 4: Array Cardio Day 1 >
+                    <div class="prevTitle">[JS30] Day 4: Array Cardio Day 1</div>
                 </a>
             
         </li>
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/Blog/2018/ck1aokout0004touys27makk2/" title= [JS30] Day 5: Flex Panels Image Gallery >
-                    <div class="nextTitle">[JS30] Day 5: Flex Panels Image Gallery</div>
+                <a href= "/Blog/2019/ck1aop8kc00063wuyz04stucv/" title= JS 複製 DIV 內容 >
+                    <div class="nextTitle">JS 複製 DIV 內容</div>
                 </a>
             
         </li>
@@ -568,7 +559,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-4-Array-Cardio-Day-1"><span class="toc-number">1.</span> <span class="toc-text">Day 4: Array Cardio Day 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#題目內容"><span class="toc-number">2.</span> <span class="toc-text">題目內容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第-1-題"><span class="toc-number">2.1.</span> <span class="toc-text">第 1 題 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第-2-題"><span class="toc-number">2.2.</span> <span class="toc-text">第 2 題 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第-3-題"><span class="toc-number">2.3.</span> <span class="toc-text">第 3 題 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第-4-題"><span class="toc-number">2.4.</span> <span class="toc-text">第 4 題 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第-5-題"><span class="toc-number">2.5.</span> <span class="toc-text">第 5 題 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第-6-題"><span class="toc-number">2.6.</span> <span class="toc-text">第 6 題 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第-7-題"><span class="toc-number">2.7.</span> <span class="toc-text">第 7 題 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第-8-題"><span class="toc-number">2.8.</span> <span class="toc-text">第 8 題 :</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">3.</span> <span class="toc-text">相關連結</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-5-Flex-Panels-Image-Gallery"><span class="toc-number">1.</span> <span class="toc-text">Day 5: Flex Panels Image Gallery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS"><span class="toc-number">2.</span> <span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1"><span class="toc-number">2.1.</span> <span class="toc-text">Step 1 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2"><span class="toc-number">2.2.</span> <span class="toc-text">Step 2 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3"><span class="toc-number">2.3.</span> <span class="toc-text">Step 3 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4"><span class="toc-number">2.4.</span> <span class="toc-text">Step 4 :</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS"><span class="toc-number">3.</span> <span class="toc-text">JS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-1"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-1"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 :</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整-JS"><span class="toc-number">4.</span> <span class="toc-text">完整 JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">5.</span> <span class="toc-text">相關連結</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -712,12 +703,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck1aokoz8000atouyodivrk6r/" >演算法與時間複雜度</a>
+            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck1aop8oy000a3wuyxa12qo89/" >演算法與時間複雜度</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck1aokouw0007touy7mct1di5/" >JS 複製 DIV 內容</a>
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck1aop8kc00063wuyz04stucv/" >JS 複製 DIV 內容</a>
         </li>
     
     
@@ -731,37 +722,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokout0004touys27makk2/" >[JS30] Day 5: Flex Panels Image Gallery</a>
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k900043wuyogd639ci/" >[JS30] Day 5: Flex Panels Image Gallery</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouu0005touytrnoqdlx/" >[JS30] Day 4: Array Cardio Day 1</a>
+            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8kd00073wuyr7qw9prf/" >[JS30] Day 4: Array Cardio Day 1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouq0002touy105tqdw6/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k600023wuynfrjzft6/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck1aokous0003touypg9r6gak/" >[JS30] Day 2: CSS + JS Clock</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k700033wuyck0eu1q8/" >[JS30] Day 2: CSS + JS Clock</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoup0001touyp8wsj969/" >[JS30] Day 1: JavaScript Drum Kit</a>
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k400013wuyp5i2vx7g/" >[JS30] Day 1: JavaScript Drum Kit</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoui0000touyma4k4bnn/" >Javascript Array Method</a>
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8jy00003wuy3pnjgben/" >Javascript Array Method</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouw0006touyzrtg7zkw/" >如何用hexo搭建部落格並連結GitHub Pages</a>
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8ka00053wuy1eo7sz77/" >如何用hexo搭建部落格並連結GitHub Pages</a>
         </li>
     
     </div>
@@ -812,7 +803,7 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
     
-        <span class="sidebar-category-name" data-categories="JS30-筆記"><span class="iconfont-archer">&#xe60a;</span>JS30-筆記</span>
+        <span class="sidebar-category-name" data-categories="JS30筆記"><span class="iconfont-archer">&#xe60a;</span>JS30筆記</span>
     
         <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
     

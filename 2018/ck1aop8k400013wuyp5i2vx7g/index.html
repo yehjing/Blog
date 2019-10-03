@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>JS 複製 DIV 內容 · Jing&#39;s 技術筆記</title>
+    <title>[JS30] Day 1: JavaScript Drum Kit · Jing&#39;s 技術筆記</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -228,7 +228,7 @@
                 <a href="/Blog/" >Jing&#39;s 技術筆記</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">JS 複製 DIV 內容</a>
+                <a href="#" class="post-name">[JS30] Day 1: JavaScript Drum Kit</a>
             </div>
     </div>
     
@@ -258,7 +258,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            JS 複製 DIV 內容
+            [JS30] Day 1: JavaScript Drum Kit
             <!-- 404 -->
             
         </h1>
@@ -284,7 +284,7 @@ height:50vh;
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/04/19</span>
+                    <span class="post-intro-time">2018/06/12</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -408,9 +408,24 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <img src="/Blog/2019/ck1aokouw0007touy7mct1di5/copyPaste.gif">
-<h2 id="如何使用-JavaScript-實現複製-DIV-內的內容"><a href="#如何使用-JavaScript-實現複製-DIV-內的內容" class="headerlink" title="如何使用 JavaScript 實現複製 DIV 內的內容"></a><center>如何使用 JavaScript 實現複製 DIV 內的內容</center></h2><p>1.創建要附加到文檔的 <code>&lt;textarea&gt;</code> 元素。將其值設置為我們要復製到剪貼板的字符串。<br>2.將所述 <code>&lt;textarea&gt;</code> 元素附加到當前HTML文檔<br>3.使用 <code>HTMLInputElement.select()</code> 選擇 <code>&lt;textarea&gt;</code> 元素的內容。<br>4.使用 <code>Document.execCommand(&#39;copy&#39;)</code> 將 <code>&lt;textarea&gt;</code> 的內容複製到剪貼板。<br>5.從文檔中刪除 <code>&lt;textarea&gt;</code> 元素。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"copyArea"</span>&gt;Copy &amp; Paste&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;button onclick="copy()"&gt;複製&lt;/</span>button&gt;</span><br><span class="line"></span><br><span class="line">copy = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> text = <span class="built_in">document</span>.getElementById(<span class="string">'copyArea'</span>).innerText</span><br><span class="line">  <span class="keyword">const</span> copyToClipboard = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> el = <span class="built_in">document</span>.createElement(<span class="string">'textarea'</span>)</span><br><span class="line">    el.value = str</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(el)</span><br><span class="line">    el.select()</span><br><span class="line">    <span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>)</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(el)</span><br><span class="line">  &#125;</span><br><span class="line">  copyToClipboard(text)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <img src="/Blog/2018/ck1aop8k400013wuyp5i2vx7g/title.png">
+<h2 id="Day-1-JavaScript-Drum-Kit"><a href="#Day-1-JavaScript-Drum-Kit" class="headerlink" title="Day 1: JavaScript Drum Kit"></a><center>Day 1: JavaScript Drum Kit</center></h2><p>透過 JavaScript 模擬一個打鼓的頁面，在按下按鍵的同時，頁面上對應的字母按鈕會變大並加上邊框，同時具有樂器的聲音。</p>
+<hr>
+<h2 id="播放、增加動態效果"><a href="#播放、增加動態效果" class="headerlink" title="播放、增加動態效果"></a><center>播放、增加動態效果</center></h2><h3 id="Step1-偵測鍵盤按鍵Keycode"><a href="#Step1-偵測鍵盤按鍵Keycode" class="headerlink" title="Step1 : 偵測鍵盤按鍵Keycode"></a>Step1 : 偵測鍵盤按鍵Keycode</h3><p>為了知道我們鍵盤按鍵所對應的 Keycode ，所以我們先建立一個 window 的監聽事件去監聽’按下鍵盤’這個動作 (<code>keydown</code>)，所然後再用 <code>console.log(e.keyCode)</code> 來看看所對應的 Keycode。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'keydown'</span>, e =&gt; <span class="built_in">console</span>.log(e.keyCode));</span><br><span class="line"><span class="comment">// 偵測使用者按下按鍵的 Keycode</span></span><br></pre></td></tr></table></figure>
+<p>透過 <a href="http://keycode.info/" target="_blank" rel="noopener">這個網站</a> 可以快速的查看對應的鍵碼。</p>
+<h3 id="Step2-播放聲音及改變樣式"><a href="#Step2-播放聲音及改變樣式" class="headerlink" title="Step2 : 播放聲音及改變樣式"></a>Step2 : 播放聲音及改變樣式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">playSound</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//根據html裡的 data-key 屬性 選擇對應的btn跟audio</span></span><br><span class="line">  <span class="keyword">let</span> audio = <span class="built_in">document</span>.querySelector(<span class="string">`audio[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">let</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">if</span>(!audio) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span>(!btn) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(btn.classList.contains(<span class="string">'cut'</span>))<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  btn.classList.add(<span class="string">'playing'</span>);</span><br><span class="line">  btn.classList.add(<span class="string">'cut'</span>);</span><br><span class="line">  audio.currentTime = <span class="number">0</span>;</span><br><span class="line">  audio.play();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>這時，當我們按下按鍵後，特效跟音效都出來了，但還有個問題，就是按下去後畫面上的按鍵不會回復成原本的樣子。</p>
+<p>所以我們要用 <code>transitionend</code> 事件去做處理 :<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//音樂播放結束時移除動畫</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reCut</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">if</span>(!btn) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  btn.classList.remove(<span class="string">'cut'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> keys=<span class="built_in">document</span>.querySelectorAll(<span class="string">'.key'</span>);</span><br><span class="line">keys.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  key.addEventListener(<span class="string">'transitionend'</span>,removetrasition)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removetrasition</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(e.propertyName !== <span class="string">'transform'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  e.target.classList.remove(<span class="string">'playing'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>這時，就大功告成啦!</p>
+<hr>
+<h2 id="完整-JS"><a href="#完整-JS" class="headerlink" title="完整 JS"></a><center>完整 JS</center></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removetrasition</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(e.propertyName !== <span class="string">'transform'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  e.target.classList.remove(<span class="string">'playing'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">playSound</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">let</span> audio = <span class="built_in">document</span>.querySelector(<span class="string">`audio[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!audio) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span>(!btn) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(btn.classList.contains(<span class="string">'cut'</span>))<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  btn.classList.add(<span class="string">'playing'</span>);</span><br><span class="line">  btn.classList.add(<span class="string">'cut'</span>);</span><br><span class="line">  audio.currentTime = <span class="number">0</span>;</span><br><span class="line">  audio.play();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reCut</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key='<span class="subst">$&#123;e.keyCode&#125;</span>']`</span>);</span><br><span class="line">  <span class="keyword">if</span>(!btn) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  btn.classList.remove(<span class="string">'cut'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//音樂播放結束時移除動畫</span></span><br><span class="line"><span class="keyword">let</span> keys=<span class="built_in">document</span>.querySelectorAll(<span class="string">'.key'</span>);</span><br><span class="line">keys.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  key.addEventListener(<span class="string">'transitionend'</span>,removetrasition)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'keydown'</span>,playSound);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'keyup'</span>,reCut);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="相關連結"><a href="#相關連結" class="headerlink" title="相關連結"></a><center>相關連結</center></h2><ul>
+<li><a href="http://keycode.info/" target="_blank" rel="noopener">查詢 Keycode</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/transitionend" target="_blank" rel="noopener">MDN transitionend</a></li>
+<li><a href="https://yehjing.github.io/Blog/2018/js30-2.html/">繼續 [JS30] - Day2</a></li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -420,16 +435,16 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/Blog/2018/ck1aokout0004touys27makk2/" title= [JS30] Day 5: Flex Panels Image Gallery >
-                    <div class="prevTitle">[JS30] Day 5: Flex Panels Image Gallery</div>
+                <a href= "/Blog/2018/ck1aop8jy00003wuy3pnjgben/" title= Javascript Array Method >
+                    <div class="prevTitle">Javascript Array Method</div>
                 </a>
             
         </li>
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/Blog/2019/ck1aokoz8000atouyodivrk6r/" title= 演算法與時間複雜度 >
-                    <div class="nextTitle">演算法與時間複雜度</div>
+                <a href= "/Blog/2018/ck1aop8k700033wuyck0eu1q8/" title= [JS30] Day 2: CSS + JS Clock >
+                    <div class="nextTitle">[JS30] Day 2: CSS + JS Clock</div>
                 </a>
             
         </li>
@@ -532,7 +547,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用-JavaScript-實現複製-DIV-內的內容"><span class="toc-number">1.</span> <span class="toc-text">如何使用 JavaScript 實現複製 DIV 內的內容</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-1-JavaScript-Drum-Kit"><span class="toc-number">1.</span> <span class="toc-text">Day 1: JavaScript Drum Kit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#播放、增加動態效果"><span class="toc-number">2.</span> <span class="toc-text">播放、增加動態效果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-偵測鍵盤按鍵Keycode"><span class="toc-number">2.1.</span> <span class="toc-text">Step1 : 偵測鍵盤按鍵Keycode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-播放聲音及改變樣式"><span class="toc-number">2.2.</span> <span class="toc-text">Step2 : 播放聲音及改變樣式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整-JS"><span class="toc-number">3.</span> <span class="toc-text">完整 JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">4.</span> <span class="toc-text">相關連結</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -676,12 +691,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck1aokoz8000atouyodivrk6r/" >演算法與時間複雜度</a>
+            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck1aop8oy000a3wuyxa12qo89/" >演算法與時間複雜度</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck1aokouw0007touy7mct1di5/" >JS 複製 DIV 內容</a>
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck1aop8kc00063wuyz04stucv/" >JS 複製 DIV 內容</a>
         </li>
     
     
@@ -695,37 +710,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokout0004touys27makk2/" >[JS30] Day 5: Flex Panels Image Gallery</a>
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k900043wuyogd639ci/" >[JS30] Day 5: Flex Panels Image Gallery</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouu0005touytrnoqdlx/" >[JS30] Day 4: Array Cardio Day 1</a>
+            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8kd00073wuyr7qw9prf/" >[JS30] Day 4: Array Cardio Day 1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouq0002touy105tqdw6/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k600023wuynfrjzft6/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck1aokous0003touypg9r6gak/" >[JS30] Day 2: CSS + JS Clock</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k700033wuyck0eu1q8/" >[JS30] Day 2: CSS + JS Clock</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoup0001touyp8wsj969/" >[JS30] Day 1: JavaScript Drum Kit</a>
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k400013wuyp5i2vx7g/" >[JS30] Day 1: JavaScript Drum Kit</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoui0000touyma4k4bnn/" >Javascript Array Method</a>
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8jy00003wuy3pnjgben/" >Javascript Array Method</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouw0006touyzrtg7zkw/" >如何用hexo搭建部落格並連結GitHub Pages</a>
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8ka00053wuy1eo7sz77/" >如何用hexo搭建部落格並連結GitHub Pages</a>
         </li>
     
     </div>
@@ -776,7 +791,7 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
     
-        <span class="sidebar-category-name" data-categories="JS30-筆記"><span class="iconfont-archer">&#xe60a;</span>JS30-筆記</span>
+        <span class="sidebar-category-name" data-categories="JS30筆記"><span class="iconfont-archer">&#xe60a;</span>JS30筆記</span>
     
         <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
     
