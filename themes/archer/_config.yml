@@ -38,10 +38,6 @@ about:
 SEO_title: Jing's 技術筆記
 # main title
 main_title: Jing's 技術筆記
-# title of the site (good for SEO)
-SEO_keywords:
-  - '技術筆記'
-  - '前端'
 # subtitle
 subtitle: 記不起來的就先寫下來吧!
 # site haeder image
@@ -66,7 +62,7 @@ algolia_search:
 # If you want to add other comment plugin, edit in "custom.ejs"
 comment:
   # Livere  site: https://livere.com/
-  livere_uid: MTAyMC80NjQ5OS8yMzAwOQ==
+  livere_uid: 
   # Disqus  site: https://disqus.com/
   disqus_shortname: 
   # Changyan  site: http://changyan.kuaizhan.com/

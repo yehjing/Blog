@@ -60,20 +60,12 @@ jsonContent:
 
 ## Optional config
 
-- [switch to English](https://github.com/fi3ework/hexo-theme-archer/wiki/%E8%8B%B1%E6%96%87%E7%95%8C%E9%9D%A2)
-
 - [enable about page](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%90%AF%E7%94%A8about%E9%A1%B5)
 - [enable 404 page](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%90%AF%E7%94%A8404%E9%A1%B5)
 - [enable rss](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%90%AF%E7%94%A8rss)
 - [custom artical head image](https://github.com/fi3ework/hexo-theme-archer/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E7%AB%A0%E9%A1%B5%E5%A4%B4%E5%9B%BE)
-- [use random image from Unsplash to be header image](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%B0%86-Unsplash-%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87%E4%BD%9C%E4%B8%BA%E5%A4%B4%E5%9B%BE)
-- [custom abstract on home page](https://github.com/fi3ework/hexo-theme-archer/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E7%AB%A0%E5%9C%A8%E9%A6%96%E9%A1%B5%E6%91%98%E8%A6%81)
 - [custom feature color](https://github.com/fi3ework/hexo-theme-archer/wiki/%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2)
-- [switch code theme color](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%88%87%E6%8D%A2%E4%BB%A3%E7%A0%81%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88)
 - [stick artical to the top](https://www.jianshu.com/p/42a4efcdf8d7)
-- [custom license of posts](https://github.com/fi3ework/hexo-theme-archer/wiki/%E8%AE%BE%E7%BD%AE%E6%96%87%E7%AB%A0%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF)
-- [enable search](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%90%AF%E7%94%A8-Algolia-%E6%90%9C%E7%B4%A2)
-- [enbale Latex](https://github.com/fi3ework/hexo-theme-archer/wiki/%E5%90%AF%E7%94%A8-Latex-%E6%94%AF%E6%8C%81)
 
 ## Theme configuration
 
@@ -85,14 +77,13 @@ avatar:
 author:
 # signature of blog
 signature:
-# SNS (you can custom the order)
+# SNS
 social:
   email:
   github:
   # wechat and qq should be a path of an qr-code image
   wechat:
   qq:
-  telegram:
   weibo:
   zhihu:
   douban:
@@ -100,8 +91,6 @@ social:
   twitter:
   instagram:
   stack-overflow:
-  segmentFault:
-  juejin:
   v2ex:
   linkedin:
   blog:
@@ -122,8 +111,6 @@ about:
 # ========== Site ========== #
 # title of the site (each article will be followed by this value to help SEO)
 SEO_title:
-# keywords of the site, good for SEO, you also can add specified keyswords for each post at Front-matter
-SEO_keywords:
 # main title (title in site banner)
 main_title:
 # subtitle (subtitle in site banner)
@@ -146,12 +133,15 @@ algolia_search:
     hits_stats: "${hits} results found in ${time} ms" # no results found hint
     
 # ========== Comment Plugin ========== #
-# Currently support directly adding Livere, Gitment, Youyan and Valine, fill the field to enable corresponding plugin
+# Currently support directly adding Livere, Gitment, Changyan and Youyan, fill the field to enable corresponding plugin
 comment:
   # Livere：https://livere.com/
   livere_uid:
   # Disqus：https://disqus.com/
   disqus_shortname:
+  # Changeyan：http://changyan.kuaizhan.com/
+  changyan_appid:
+  changyan_conf:
   # Gitment：https://github.com/imsun/gitment
   gitment_owner:
   gitment_repo:
@@ -159,11 +149,7 @@ comment:
   gitment_client_secret:
   # Youyan: http://www.uyan.cc/
   youyan_uid:
-  # Valine: site: https://valine.js.org/
-  valine_appId: 
-  valine_appKey: 
-  valine_placeHolder: 
-  
+
 # ========== Analytics ========== #
 # enable Busuanzi analytics
 busuanzi: true
@@ -192,18 +178,6 @@ index_intro_height: 50
 post_intro_height: 50
 about_intro_height: 50
 ```
-## Update theme
-
-Two kind of update method are provided here: the first use git to update theme. However, it may encounter merge conflict that you need to resolve; The second is simple but efficient.  
-
-### git pull
-
-Run `git stash` under archer folder to stash the local modification and run `git pull` to fetch the lastest version of theme. Then run `git stash pop` to restore the local modification. There may be a merge conflict that you need to resolve.
-
-### simple but efficient way
-
-First backup all the files that you customed and added (include _config.yml and files in source and so on) and delete the directory of archer. Then reinstall archer. At last, restore the backup files to the original place they belong.
-
 ## License
 
 MIT

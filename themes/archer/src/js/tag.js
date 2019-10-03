@@ -24,20 +24,16 @@ class MetaInfo {
   }
 
   _bindLabelClick() {
-    this.labelsContainer.addEventListener('click', e => {
+    this.labelsContainer.addEventListener('click', (e) => {
       let currLabelName = e.target.getAttribute(`data-${this.metaName}`)
       this.changeLabel(currLabelName)
     })
   }
 
   _changeFocus(label) {
-    let currFocus = this.labelsContainer.getElementsByClassName(
-      'sidebar-label-focus'
-    )
-    ;[...currFocus].forEach(item =>
-      item.classList.remove('sidebar-label-focus')
-    )
-    ;[...this.labelsContainer.children].forEach(item => {
+    let currFocus = this.labelsContainer.getElementsByClassName('sidebar-label-focus');
+    [...currFocus].forEach((item) => item.classList.remove('sidebar-label-focus'));
+    [...this.labelsContainer.children].forEach(item => {
       if (item.getAttribute(`data-${this.metaName}`) === this.currLabelName) {
         item.classList.add('sidebar-label-focus')
       }
@@ -47,14 +43,12 @@ class MetaInfo {
   _changeList() {
     let indexArr = this.indexMap.get(this.currLabelName)
     try {
-      let corrArr = indexArr.map(index => {
+      let corrArr = indexArr.map((index) => {
         return this.postsArr[index]
       })
       this._createPostsDom(corrArr)
     } catch (error) {
-      console.error(
-        'Please ensure set `tags: true` and `categories: true` of the hexo-content-json config'
-      )
+      console.error('Please ensure set `tags: true` and `categories: true` of the hexo-content-json config')
     }
   }
 
@@ -69,38 +63,22 @@ class MetaInfo {
   }
 
   _createPostDom(postInfo) {
-    let $tagItem = $(
-      '<li class="meta-post-item"><span class="meta-post-date">' +
-        archerUtil.dateFormater(
-          new Date(Date.parse(postInfo.date)),
-          'yyyy/MM/dd'
-        ) +
-        '</span></li>'
-    )
-    let $aItem = $(
-      '<a class="meta-post-title" href="' +
-        siteMeta.root +
-        postInfo.path +
-        '">' +
-        postInfo.title +
-        '</a>'
-    )
+    let $tagItem = $('<li class="meta-post-item"><span class="meta-post-date">' + archerUtil.dateFormater(new Date(Date.parse(postInfo.date)), 'yyyy/MM/dd') + '</span></li>')
+    let $aItem = $('<a class="meta-post-title" href="' + siteMeta.root + postInfo.path + '">' + postInfo.title + '</a>')
     $tagItem.append($aItem)
     return $tagItem[0]
   }
 
   tryInit(postsArr) {
-    if (
-      this.isInited ||
-      Object.prototype.toString.call(postsArr) === '[object Null]'
-    ) {
+    if (this.isInited ||
+            Object.prototype.toString.call(postsArr) === '[object Null]') {
       return
     }
     for (let postIndex = 0; postIndex < postsArr.length; postIndex++) {
       let currPostLabels = postsArr[postIndex][this.metaName]
       // if there is any post has a tag
       if (currPostLabels && currPostLabels.length) {
-        currPostLabels.forEach(tag => {
+        currPostLabels.forEach((tag) => {
           if (this.indexMap.has(tag.name)) {
             this.indexMap.get(tag.name).push(postIndex)
           } else {
@@ -111,9 +89,7 @@ class MetaInfo {
     }
 
     if (!this.indexMap.size) {
-      document
-        .getElementsByClassName(`sidebar-${this.metaName}-empty`)[0]
-        .classList.add(`sidebar-${this.metaName}-empty-active`)
+      document.getElementsByClassName(`sidebar-${this.metaName}-empty`)[0].classList.add(`sidebar-${this.metaName}-empty-active`)
     }
 
     this.postsArr = postsArr
@@ -137,11 +113,7 @@ class SidebarMeta {
   // add a new tab and updata all metas
   addTab(para) {
     this.tabCount++
-    let newMeta = new MetaInfo(
-      para.metaName,
-      para.labelsContainer,
-      para.postsContainer
-    )
+    let newMeta = new MetaInfo(para.metaName, para.labelsContainer, para.postsContainer)
     newMeta.tryInit(this.postsArr)
     this.metas.push(newMeta)
   }
@@ -169,7 +141,7 @@ class SidebarMeta {
   // fetch content.json
   _fetchInfo() {
     // siteMeta is from js-info.ejs
-    let contentURL = siteMeta.root + 'content.json?t=' + Number(new Date())
+    let contentURL = siteMeta.root + 'content.json?t=' + (Number(new Date()))
     let xhr = new XMLHttpRequest()
     xhr.responseType = ''
     xhr.open('get', contentURL, true)
@@ -196,7 +168,7 @@ class SidebarMeta {
   }
 
   _bindOtherClick() {
-    document.body.addEventListener('click', e => {
+    document.body.addEventListener('click', (e) => {
       if (e.target.className === 'post-tag') {
         e.stopPropagation()
         sidebar.activateSidebar()
@@ -208,6 +180,7 @@ class SidebarMeta {
       }
     })
   }
+
 }
 
 export default SidebarMeta
