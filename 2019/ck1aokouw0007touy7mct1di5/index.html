@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>[JS30] Day 2: CSS + JS Clock · Jing&#39;s 技術筆記</title>
+    <title>JS 複製 DIV 內容 · Jing&#39;s 技術筆記</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -228,7 +228,7 @@
                 <a href="/Blog/" >Jing&#39;s 技術筆記</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">[JS30] Day 2: CSS + JS Clock</a>
+                <a href="#" class="post-name">JS 複製 DIV 內容</a>
             </div>
     </div>
     
@@ -258,7 +258,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            [JS30] Day 2: CSS + JS Clock
+            JS 複製 DIV 內容
             <!-- 404 -->
             
         </h1>
@@ -284,7 +284,7 @@ height:50vh;
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/06/27</span>
+                    <span class="post-intro-time">2019/04/19</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -408,38 +408,9 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <img src="/Blog/2018/ck13lk6o50000vsuy3buwwj46/title.PNG">
-<h2 id="Day-2-CSS-JS-Clock"><a href="#Day-2-CSS-JS-Clock" class="headerlink" title="Day 2: CSS + JS Clock"></a><center>Day 2: CSS + JS Clock</center></h2><center>使用 JS 及 CSS 製作出一個簡易的時鐘。</center>
-
-<p>主要練習:</p>
-<ul>
-<li>CSS - transform</li>
-<li>JS - Date</li>
-<li>JS - HTMLElement.style</li>
-<li>JS - window.setInterval()</li>
-</ul>
-<hr>
-<h2 id="設定-CSS-樣式"><a href="#設定-CSS-樣式" class="headerlink" title="設定 CSS 樣式"></a><center>設定 CSS 樣式</center></h2><h3 id="CSS-transform"><a href="#CSS-transform" class="headerlink" title="CSS - transform"></a>CSS - transform</h3><p>開啟專案後，可以看到所有只指針都指在9點鐘的方向，這時我們需要用 CSS  <code>transform</code>的功能去調整指針的位置到12點鐘方向。</p>
-<p>在 CSS 中找到 <code>.hand</code> 並加入以下程式碼:</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hand</span> &#123;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">100%</span>; <span class="comment">/* 將元素的最右方做為旋轉軸心 */</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(90deg); <span class="comment">/* 以軸心為基準旋轉90度 */</span></span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.05s</span>; <span class="comment">/* 漸變 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="抓取現在時間"><a href="#抓取現在時間" class="headerlink" title="抓取現在時間"></a><center>抓取現在時間</center></h2><h3 id="Step1-建立函式"><a href="#Step1-建立函式" class="headerlink" title="Step1 : 建立函式"></a>Step1 : 建立函式</h3><p>在 javascript 中，若要取得現在時間我們使用<code>new Date()</code>，若要取其中的年月日…等，就取用<code>Date</code>物件裡的方法，取出所需要的值，<code>Date</code>物件裡的所有方法可以在<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" rel="noopener">這邊</a>查詢，這個範例只會使用到小時、分鐘、秒數。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTime</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  <span class="comment">// 取得當前小時、分鐘、秒數</span></span><br><span class="line">  <span class="keyword">const</span> hour = now.getHours();</span><br><span class="line">  <span class="keyword">const</span> min = now.getMinutes();</span><br><span class="line">  <span class="keyword">const</span> sec = now.getSeconds();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Step2-計算角度並指向當前時間的位置"><a href="#Step2-計算角度並指向當前時間的位置" class="headerlink" title="Step2 : 計算角度並指向當前時間的位置"></a>Step2 : 計算角度並指向當前時間的位置</h3><p>接下來，我們需要計算時針、分針及秒針走一格所需的角度乘以當前時間並加上剛剛在 CSS 中旋轉的 90 度，來讓指針指在當前時間正確的位置。</p>
-<p>在剛剛的<code>getTime()</code> 裡加上角度的計算:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTime</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 秒針走一格的角度 * sec + 一開始CSS轉了90度</span></span><br><span class="line">  <span class="keyword">const</span> secDeg = <span class="number">360</span> / <span class="number">60</span> * sec + <span class="number">90</span>;</span><br><span class="line">  <span class="keyword">const</span> minDeg = <span class="number">360</span> / <span class="number">60</span> * min + <span class="number">90</span> + <span class="number">6</span> / <span class="number">60</span> * sec;</span><br><span class="line">  <span class="keyword">const</span> hourDeg = <span class="number">360</span> / <span class="number">12</span> * hour + <span class="number">90</span> + <span class="number">30</span> / <span class="number">60</span> * min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在這，妳可能會發現，在時針以及分針的地方，後面怎麼多了一段計算，這是因為如果不多加這個計算過程，在指針的指向上會出現一些問題，例如:在 5 點 59 分時時針一樣指在 5 的方向，過了一分鐘到了 6 點，時針會直接從 5 跳到 6 ，一般的時鐘是不會這樣的。</p>
-<p>所以我們在這邊做個微調，分別在分針及秒針在細分成 60 等分，然後再分別乘上對應的秒數及分鐘數。</p>
-<p>再來，就讓讓各指針指向所對應的時間上，這裡透過 JS <code>HTMLElement.style</code> 去控制 CSS 裡的 <code>transform</code> ，分別讓他們旋轉到當前時間所對應的位置。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTime</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 秒針走一格的角度 * sec + 一開始CSS轉了90度</span></span><br><span class="line">  <span class="keyword">const</span> secDeg = <span class="number">360</span> / <span class="number">60</span> * sec + <span class="number">90</span>;</span><br><span class="line">  <span class="keyword">const</span> minDeg = <span class="number">360</span> / <span class="number">60</span> * min + <span class="number">90</span> + <span class="number">6</span> / <span class="number">60</span> * sec;</span><br><span class="line">  <span class="keyword">const</span> hourDeg = <span class="number">360</span> / <span class="number">12</span> * hour + <span class="number">90</span> + <span class="number">30</span> / <span class="number">60</span> * min;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> secondHand = <span class="built_in">document</span>.querySelector(<span class="string">'.second-hand'</span>);</span><br><span class="line">  <span class="keyword">const</span> minHand = <span class="built_in">document</span>.querySelector(<span class="string">'.min-hand'</span>);</span><br><span class="line">  <span class="keyword">const</span> hourHand = <span class="built_in">document</span>.querySelector(<span class="string">'.hour-hand'</span>);</span><br><span class="line">  secondHand.style.transform =<span class="string">`rotate( <span class="subst">$&#123; secDeg &#125;</span>deg )`</span>;</span><br><span class="line">  minHand.style.transform = <span class="string">`rotate( <span class="subst">$&#123; minDeg &#125;</span>deg )`</span>;</span><br><span class="line">  hourHand.style.transform = <span class="string">`rotate( <span class="subst">$&#123; hourDeg &#125;</span>deg )`</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Step3-開始轉動"><a href="#Step3-開始轉動" class="headerlink" title="Step3 : 開始轉動"></a>Step3 : 開始轉動</h3><p>要讓指針開始轉動，因為需要多次執行，所以我們使用<code>setInterval()</code>。<br><code>setInterval(function, time)</code>，就是每<code>time</code>的時間就執行一次<code>function</code> : </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(getTime, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>到這，就完成啦!</p>
-<hr>
-<h2 id="完整-JS"><a href="#完整-JS" class="headerlink" title="完整 JS"></a><center>完整 JS</center></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> secondHand = <span class="built_in">document</span>.querySelector(<span class="string">'.second-hand'</span>);</span><br><span class="line"><span class="keyword">const</span> minHand = <span class="built_in">document</span>.querySelector(<span class="string">'.min-hand'</span>);</span><br><span class="line"><span class="keyword">const</span> hourHand = <span class="built_in">document</span>.querySelector(<span class="string">'.hour-hand'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTime</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  <span class="keyword">const</span> hour = now.getHours();</span><br><span class="line">  <span class="keyword">const</span> min = now.getMinutes();</span><br><span class="line">  <span class="keyword">const</span> sec = now.getSeconds();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> secDeg = <span class="number">360</span> / <span class="number">60</span> * sec + <span class="number">90</span>;</span><br><span class="line">  secondHand.style.transform =<span class="string">`rotate( <span class="subst">$&#123; secDeg &#125;</span>deg )`</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> minDeg = <span class="number">360</span> / <span class="number">60</span> * min + <span class="number">6</span> / <span class="number">60</span> * sec + <span class="number">90</span>;</span><br><span class="line">  minHand.style.transform = <span class="string">`rotate( <span class="subst">$&#123; minDeg &#125;</span>deg )`</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> hourDeg = <span class="number">360</span> / <span class="number">12</span> * hour + <span class="number">30</span> / <span class="number">60</span> * min + <span class="number">90</span>;</span><br><span class="line">  hourHand.style.transform = <span class="string">`rotate( <span class="subst">$&#123; hourDeg &#125;</span>deg )`</span>;</span><br><span class="line">&#125;</span><br><span class="line">setInterval(getTime, <span class="number">1000</span>);</span><br><span class="line">getTime();</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="相關連結"><a href="#相關連結" class="headerlink" title="相關連結"></a><center>相關連結</center></h2><ul>
-<li><a href="https://yehjing.github.io/Blog/2018/js30-1.html/">回到 [JS30] - Day1</a></li>
-<li><a href="https://yehjing.github.io/Blog/2018/js30-3.html/">繼續 [JS30] - Day3</a></li>
-</ul>
+        <img src="/Blog/2019/ck1aokouw0007touy7mct1di5/copyPaste.gif">
+<h2 id="如何使用-JavaScript-實現複製-DIV-內的內容"><a href="#如何使用-JavaScript-實現複製-DIV-內的內容" class="headerlink" title="如何使用 JavaScript 實現複製 DIV 內的內容"></a><center>如何使用 JavaScript 實現複製 DIV 內的內容</center></h2><p>1.創建要附加到文檔的 <code>&lt;textarea&gt;</code> 元素。將其值設置為我們要復製到剪貼板的字符串。<br>2.將所述 <code>&lt;textarea&gt;</code> 元素附加到當前HTML文檔<br>3.使用 <code>HTMLInputElement.select()</code> 選擇 <code>&lt;textarea&gt;</code> 元素的內容。<br>4.使用 <code>Document.execCommand(&#39;copy&#39;)</code> 將 <code>&lt;textarea&gt;</code> 的內容複製到剪貼板。<br>5.從文檔中刪除 <code>&lt;textarea&gt;</code> 元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"copyArea"</span>&gt;Copy &amp; Paste&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;button onclick="copy()"&gt;複製&lt;/</span>button&gt;</span><br><span class="line"></span><br><span class="line">copy = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> text = <span class="built_in">document</span>.getElementById(<span class="string">'copyArea'</span>).innerText</span><br><span class="line">  <span class="keyword">const</span> copyToClipboard = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> el = <span class="built_in">document</span>.createElement(<span class="string">'textarea'</span>)</span><br><span class="line">    el.value = str</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(el)</span><br><span class="line">    el.select()</span><br><span class="line">    <span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>)</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(el)</span><br><span class="line">  &#125;</span><br><span class="line">  copyToClipboard(text)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- license  -->
@@ -449,16 +420,16 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/Blog/2018/ck13lk6oc0002vsuyehpz5hdv/" title= [JS30] Day 1: JavaScript Drum Kit >
-                    <div class="prevTitle">[JS30] Day 1: JavaScript Drum Kit</div>
+                <a href= "/Blog/2018/ck1aokout0004touys27makk2/" title= [JS30] Day 5: Flex Panels Image Gallery >
+                    <div class="prevTitle">[JS30] Day 5: Flex Panels Image Gallery</div>
                 </a>
             
         </li>
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/Blog/2018/ck13lk6od0003vsuycq5t7h52/" title= [JS30] Day 3: Playing with CSS Variables and JS >
-                    <div class="nextTitle">[JS30] Day 3: Playing with CSS Variables and JS</div>
+                <a href= "/Blog/2019/ck1aokoz8000atouyodivrk6r/" title= 演算法與時間複雜度 >
+                    <div class="nextTitle">演算法與時間複雜度</div>
                 </a>
             
         </li>
@@ -561,7 +532,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-2-CSS-JS-Clock"><span class="toc-number">1.</span> <span class="toc-text">Day 2: CSS + JS Clock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設定-CSS-樣式"><span class="toc-number">2.</span> <span class="toc-text">設定 CSS 樣式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-transform"><span class="toc-number">2.1.</span> <span class="toc-text">CSS - transform</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抓取現在時間"><span class="toc-number">3.</span> <span class="toc-text">抓取現在時間</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-建立函式"><span class="toc-number">3.1.</span> <span class="toc-text">Step1 : 建立函式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-計算角度並指向當前時間的位置"><span class="toc-number">3.2.</span> <span class="toc-text">Step2 : 計算角度並指向當前時間的位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-開始轉動"><span class="toc-number">3.3.</span> <span class="toc-text">Step3 : 開始轉動</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整-JS"><span class="toc-number">4.</span> <span class="toc-text">完整 JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">5.</span> <span class="toc-text">相關連結</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用-JavaScript-實現複製-DIV-內的內容"><span class="toc-number">1.</span> <span class="toc-text">如何使用 JavaScript 實現複製 DIV 內的內容</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -705,12 +676,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck13lk6s7000avsuygcqyq2vw/" >演算法與時間複雜度</a>
+            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck1aokoz8000atouyodivrk6r/" >演算法與時間複雜度</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck13lk6og0007vsuy743wj2qa/" >JS 複製 DIV 內容</a>
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck1aokouw0007touy7mct1di5/" >JS 複製 DIV 內容</a>
         </li>
     
     
@@ -724,37 +695,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6oe0005vsuy4026tll0/" >[JS30] Day 5: Flex Panels Image Gallery</a>
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokout0004touys27makk2/" >[JS30] Day 5: Flex Panels Image Gallery</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6oe0004vsuyned3n8qx/" >[JS30] Day 4: Array Cardio Day 1</a>
+            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouu0005touytrnoqdlx/" >[JS30] Day 4: Array Cardio Day 1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6od0003vsuycq5t7h52/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouq0002touy105tqdw6/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6o50000vsuy3buwwj46/" >[JS30] Day 2: CSS + JS Clock</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck1aokous0003touypg9r6gak/" >[JS30] Day 2: CSS + JS Clock</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6oc0002vsuyehpz5hdv/" >[JS30] Day 1: JavaScript Drum Kit</a>
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoup0001touyp8wsj969/" >[JS30] Day 1: JavaScript Drum Kit</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6ob0001vsuyrcgtu18t/" >Javascript Array Method</a>
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoui0000touyma4k4bnn/" >Javascript Array Method</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6of0006vsuy2ch1umcu/" >如何用hexo搭建部落格並連結GitHub Pages</a>
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouw0006touyzrtg7zkw/" >如何用hexo搭建部落格並連結GitHub Pages</a>
         </li>
     
     </div>
@@ -803,9 +774,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="JS30-筆記"><span class="iconfont-archer">&#xe60a;</span>JS30-筆記</span>
-    
         <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
+    
+        <span class="sidebar-category-name" data-categories="JS30-筆記"><span class="iconfont-archer">&#xe60a;</span>JS30-筆記</span>
     
         <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
     

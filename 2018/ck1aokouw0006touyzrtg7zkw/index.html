@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>[JS30] Day 5: Flex Panels Image Gallery · Jing&#39;s 技術筆記</title>
+    <title>如何用hexo搭建部落格並連結GitHub Pages · Jing&#39;s 技術筆記</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -228,7 +228,7 @@
                 <a href="/Blog/" >Jing&#39;s 技術筆記</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">[JS30] Day 5: Flex Panels Image Gallery</a>
+                <a href="#" class="post-name">如何用hexo搭建部落格並連結GitHub Pages</a>
             </div>
     </div>
     
@@ -258,7 +258,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            [JS30] Day 5: Flex Panels Image Gallery
+            如何用hexo搭建部落格並連結GitHub Pages
             <!-- 404 -->
             
         </h1>
@@ -277,14 +277,14 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Hexo">Hexo</a>
     
 </div>
                 
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/08/28</span>
+                    <span class="post-intro-time">2018/05/25</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -408,35 +408,38 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <img src="/Blog/2018/ck13lk6oe0005vsuy4026tll0/title.png">
-<h2 id="Day-5-Flex-Panels-Image-Gallery"><a href="#Day-5-Flex-Panels-Image-Gallery" class="headerlink" title="Day 5: Flex Panels Image Gallery"></a><center>Day 5: Flex Panels Image Gallery</center></h2><center>用 CSS-Flex 與 JS 製作一個點擊後會展開的圖片展示效果</center>
-
-<p>主要練習:</p>
+        <h2 id="如何用hexo搭建部落格並連結GitHub-Pages"><a href="#如何用hexo搭建部落格並連結GitHub-Pages" class="headerlink" title="如何用hexo搭建部落格並連結GitHub Pages"></a><center>如何用hexo搭建部落格並連結GitHub Pages</center></h2><h2 id="Hexo-簡介與安裝"><a href="#Hexo-簡介與安裝" class="headerlink" title=" Hexo 簡介與安裝"></a><center> Hexo 簡介與安裝</center></h2><h3 id="什麼是-Hexo"><a href="#什麼是-Hexo" class="headerlink" title="什麼是 Hexo"></a><center>什麼是 Hexo</center></h3><p>Hexo 是一個快速、簡單且強大的網誌框架。Hexo 使用 Markdown（或其他渲染引擎）解析您的文章，並在幾秒鐘內，透過漂亮的主題產生靜態檔案。</p>
+<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a><center>安裝</center></h3><p>首先電腦必須安裝下列軟體:</p>
 <ul>
-<li>CSS - Flexbox</li>
-<li>JS - transitionend event</li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
 </ul>
+<p>安裝完成後透過終端機執行以下指令，藉由npm即可完成 Hexo 的安裝。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<h3 id="建立"><a href="#建立" class="headerlink" title="建立"></a><center>建立</center></h3><p>創建我的部落格:<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog        //創建一個名為blog的資料夾</span><br><span class="line">$ <span class="built_in">cd</span> blog               //切換到剛創建的資料夾路徑</span><br><span class="line">$ npm install           //執行npm install</span><br><span class="line">$ npm install hexo-deployer-git --save      //git部署插件</span><br></pre></td></tr></table></figure></p>
+<p>建立完成後資料夾內會有以下檔案:<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml         //主要設定檔</span><br><span class="line">├── package.json</span><br><span class="line">├── node_modules        //相依套件</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts          //撰寫的所有文章都放在這個資料夾</span><br><span class="line">└── themes              //主題</span><br></pre></td></tr></table></figure></p>
+<p><code>_config.yml</code> 是 Hexo 主要設定檔 可修改網站<a href="https://hexo.io/zh-tw/docs/configuration.html" target="_blank" rel="noopener">配置</a></p>
+<p>此時在 blog 資料夾下執行:<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
+<p>這時打開瀏覽器在網址列輸入 localhost:4000 就可以看到自己剛創建好的部落格啦。</p>
 <hr>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a><center>CSS</center></h2><h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1 :"></a>Step 1 :</h3><p>首先可以看到 HTML 中，有一個 <code>.panels</code> 包覆著 5 個 <code>.panel</code>，預覽畫面時，發現畫面是由上到下排列的，但我們要的是這 5 個 <code>.panel</code> 橫向並等寬的佔滿畫面，所以這時我們在 <code>.panels</code> 上使用 <code>display: flex</code> 屬性，讓內層子元素都變成 <code>flex</code> 屬性。</p>
-<h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2 :"></a>Step 2 :</h3><p>這時會看到 <code>.panel</code> 變成橫向排列，但卻沒有占滿整個畫面，所以現在我們要在 <code>.panel</code> 上設置元素的比例，並讓擠在上方的文字置中顯示，所以加上 <code>flex: 1</code> 及 <code>justify-content: center</code> 。</p>
-<h3 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3 :"></a>Step 3 :</h3><p>接下來要讓文字垂直排列並平均分配在 <code>.panel</code> 中，所以再加上 <code>display: flex</code> 及 <code>flex-direction: column</code> 。</p>
-<h3 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4 :"></a>Step 4 :</h3><p>對 <code>.panel</code> 中最上面及最下面 <code>p</code> 元素裡的文字做位移效果，讓他在可視範圍外，並再加上一個 <code>.active</code> 的 class 以利等等搭配 JS 讓元素移回可視範圍內。<br>接著也在 <code>.panel.open</code> 中加上 <code>flex: 5</code> 使其觸發時會有展開的動畫。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.panel</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translateY</span>(-100%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.active</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translateY</span>(0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translateY</span>(100%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.active</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translateY</span>(0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.open</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>:<span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a><center>JS</center></h2><h3 id="Step-1-1"><a href="#Step-1-1" class="headerlink" title="Step 1 :"></a>Step 1 :</h3><p>先抓取到 <code>.panel</code> 所有節點，接著設計一個可以透過新增/移除 class 方法來製作互動效果的 function 。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> panels = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.panel'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleOpen</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.classList.toggle(<span class="string">'open'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleActive</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (e.propertyName.includes(<span class="string">'flex'</span>)) &#123;</span><br><span class="line">    <span class="keyword">this</span>.classList.toggle(<span class="string">'active'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>e.propertyName可以抓到觸發transitionend的屬性名稱，<br>而 <code>.open</code> 中觸發的 <code>transition</code> 屬性有兩個，分別為 <code>font</code> 與 <code>flex</code><br>要使其在 flex 之後在觸發的話，就要判斷進來的是不是 <code>flex</code><br>但因為 <code>transition: flex 0.7s..</code> 這段在 sarafi 是 <code>flex</code> ，而其他瀏覽器為 <code>flex-grow</code><br>所以不能用 <code>e.property === &#39;flex&#39;</code> 來寫，會使其中一方瀏覽器抓不到值，<br>作者提到因為兩者都有 flex 的字眼，所以利用 <code>.includes(&#39;flex&#39;)</code> 來判斷， 只要 <code>e.property</code> 有包含到 flex 的字串就使其通過判斷，加入動畫效果。</p>
-</blockquote>
-<h3 id="Step-2-1"><a href="#Step-2-1" class="headerlink" title="Step 2 :"></a>Step 2 :</h3><p>加上監聽事件，觸發上方的 function 。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">panels.forEach(<span class="function"><span class="params">panel</span> =&gt;</span> panel.addEventListener(<span class="string">'click'</span>, toggleOpen))</span><br><span class="line">panels.forEach(<span class="function"><span class="params">panel</span> =&gt;</span> panel.addEventListener(<span class="string">'transitionend'</span>, toggleActive));</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="完整-JS"><a href="#完整-JS" class="headerlink" title="完整 JS"></a><center>完整 JS</center></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> panels = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.panel'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleOpen</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.classList.toggle(<span class="string">'open'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleActive</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// console.log(e.propertyName);</span></span><br><span class="line">  <span class="keyword">if</span> (e.propertyName.includes(<span class="string">'flex'</span>)) &#123;</span><br><span class="line">    <span class="keyword">this</span>.classList.toggle(<span class="string">'active'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">panels.forEach(<span class="function"><span class="params">panel</span> =&gt;</span> panel.addEventListener(<span class="string">'click'</span>, toggleOpen))</span><br><span class="line">panels.forEach(<span class="function"><span class="params">panel</span> =&gt;</span> panel.addEventListener(<span class="string">'transitionend'</span>, toggleActive));</span><br></pre></td></tr></table></figure>
+<h2 id="用-GitHub-Pages-與-Hexo-相聯"><a href="#用-GitHub-Pages-與-Hexo-相聯" class="headerlink" title="用 GitHub Pages 與 Hexo 相聯"></a><center>用 GitHub Pages 與 Hexo 相聯</center></h2><h3 id="創建新的倉庫並與-Hexo-關聯"><a href="#創建新的倉庫並與-Hexo-關聯" class="headerlink" title="創建新的倉庫並與 Hexo 關聯"></a><center>創建新的倉庫並與 Hexo 關聯</center></h3><p>首先，先創建一個 GitHub 的帳號，然後創建一個新的倉庫。</p>
+<img src="/Blog/2018/ck1aokouw0006touyzrtg7zkw/new_repo.png">
+<p>接著在站點配置文件<code>_config.yml</code>找到<code>deploy</code>這個欄位。</p>
+<img src="/Blog/2018/ck1aokouw0006touyzrtg7zkw/deploy.png">
+<p>這裡配置文件的設定就是給<code>hexo d</code>這個指令做相對應的配置，讓hexo知道你要把blog部屬到哪個位置。</p>
+<p>接著執行以下2個指令:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g        //生成靜態檔案</span><br><span class="line">$ hexo d        //佈署至關聯的GitHub</span><br></pre></td></tr></table></figure>
+<p>此時在GitHub的新倉庫裡應該會看到剛剛所佈署的靜態文件。</p>
+<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a><center>GitHub Pages</center></h3><p>在GitHub倉庫中找到Settings選項。</p>
+<img src="/Blog/2018/ck1aokouw0006touyzrtg7zkw/settings.png">
+<p>將畫面往下拉找到GitHub Pages，選擇master branch，選擇好後點擊save，這時重新整理頁面，就能看到自己GitHub Pages的網址了，點擊聯結進去後就是一個自己新創好的部落格囉!</p>
+<img src="/Blog/2018/ck1aokouw0006touyzrtg7zkw/github-pages.png">
+<p>之後發表完新的文章後一樣是<code>hexo g</code>轉成靜態文件，然後再<code>hexo d</code>佈署到GitHub就可以在GitHub Pages看到自己所發表的文章囉!</p>
 <hr>
 <h2 id="相關連結"><a href="#相關連結" class="headerlink" title="相關連結"></a><center>相關連結</center></h2><ul>
-<li><a href="https://wcc723.github.io/css/2017/07/21/css-flex/" target="_blank" rel="noopener">CSS Flex</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/transitionend" target="_blank" rel="noopener">MDN transitionend</a></li>
-<li><a href="https://yehjing.github.io/Blog/2018/js30-4.html/">回到 [JS30] - Day4</a></li>
-<li><a href="https://yehjing.github.io/Blog/2018/js30-6.html/">繼續 [JS30] - Day6</a></li>
+<li><p>相關的站點<a href="https://hexo.io/zh-tw/docs/configuration.html" target="_blank" rel="noopener">文件設定</a>及<a href="https://hexo.io/zh-tw/docs/themes.html" target="_blank" rel="noopener">主題更換</a>在Hexo官方文件中有詳細說明。</p>
+</li>
+<li><p><a href="https://hexo.io/docs/index.html" target="_blank" rel="noopener">Hexo官方文件</a></p>
+</li>
 </ul>
 
     </article>
@@ -446,17 +449,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="previous">
             
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/Blog/2018/ck13lk6oe0004vsuyned3n8qx/" title= [JS30] Day 4: Array Cardio Day 1 >
-                    <div class="prevTitle">[JS30] Day 4: Array Cardio Day 1</div>
-                </a>
-            
         </li>
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/Blog/2019/ck13lk6og0007vsuy743wj2qa/" title= JS 複製 DIV 內容 >
-                    <div class="nextTitle">JS 複製 DIV 內容</div>
+                <a href= "/Blog/2018/ck1aokoui0000touyma4k4bnn/" title= Javascript Array Method >
+                    <div class="nextTitle">Javascript Array Method</div>
                 </a>
             
         </li>
@@ -559,7 +557,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-5-Flex-Panels-Image-Gallery"><span class="toc-number">1.</span> <span class="toc-text">Day 5: Flex Panels Image Gallery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS"><span class="toc-number">2.</span> <span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1"><span class="toc-number">2.1.</span> <span class="toc-text">Step 1 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2"><span class="toc-number">2.2.</span> <span class="toc-text">Step 2 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3"><span class="toc-number">2.3.</span> <span class="toc-text">Step 3 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4"><span class="toc-number">2.4.</span> <span class="toc-text">Step 4 :</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS"><span class="toc-number">3.</span> <span class="toc-text">JS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-1"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-1"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 :</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整-JS"><span class="toc-number">4.</span> <span class="toc-text">完整 JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">5.</span> <span class="toc-text">相關連結</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何用hexo搭建部落格並連結GitHub-Pages"><span class="toc-number">1.</span> <span class="toc-text">如何用hexo搭建部落格並連結GitHub Pages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-簡介與安裝"><span class="toc-number">2.</span> <span class="toc-text"> Hexo 簡介與安裝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什麼是-Hexo"><span class="toc-number">2.1.</span> <span class="toc-text">什麼是 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝"><span class="toc-number">2.2.</span> <span class="toc-text">安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立"><span class="toc-number">2.3.</span> <span class="toc-text">建立</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用-GitHub-Pages-與-Hexo-相聯"><span class="toc-number">3.</span> <span class="toc-text">用 GitHub Pages 與 Hexo 相聯</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#創建新的倉庫並與-Hexo-關聯"><span class="toc-number">3.1.</span> <span class="toc-text">創建新的倉庫並與 Hexo 關聯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub-Pages"><span class="toc-number">3.2.</span> <span class="toc-text">GitHub Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相關連結"><span class="toc-number">4.</span> <span class="toc-text">相關連結</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -703,12 +701,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck13lk6s7000avsuygcqyq2vw/" >演算法與時間複雜度</a>
+            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck1aokoz8000atouyodivrk6r/" >演算法與時間複雜度</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck13lk6og0007vsuy743wj2qa/" >JS 複製 DIV 內容</a>
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck1aokouw0007touy7mct1di5/" >JS 複製 DIV 內容</a>
         </li>
     
     
@@ -722,37 +720,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6oe0005vsuy4026tll0/" >[JS30] Day 5: Flex Panels Image Gallery</a>
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokout0004touys27makk2/" >[JS30] Day 5: Flex Panels Image Gallery</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6oe0004vsuyned3n8qx/" >[JS30] Day 4: Array Cardio Day 1</a>
+            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouu0005touytrnoqdlx/" >[JS30] Day 4: Array Cardio Day 1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6od0003vsuycq5t7h52/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouq0002touy105tqdw6/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6o50000vsuy3buwwj46/" >[JS30] Day 2: CSS + JS Clock</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck1aokous0003touypg9r6gak/" >[JS30] Day 2: CSS + JS Clock</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6oc0002vsuyehpz5hdv/" >[JS30] Day 1: JavaScript Drum Kit</a>
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoup0001touyp8wsj969/" >[JS30] Day 1: JavaScript Drum Kit</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6ob0001vsuyrcgtu18t/" >Javascript Array Method</a>
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck1aokoui0000touyma4k4bnn/" >Javascript Array Method</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck13lk6of0006vsuy2ch1umcu/" >如何用hexo搭建部落格並連結GitHub Pages</a>
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aokouw0006touyzrtg7zkw/" >如何用hexo搭建部落格並連結GitHub Pages</a>
         </li>
     
     </div>
@@ -801,9 +799,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="JS30-筆記"><span class="iconfont-archer">&#xe60a;</span>JS30-筆記</span>
-    
         <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
+    
+        <span class="sidebar-category-name" data-categories="JS30-筆記"><span class="iconfont-archer">&#xe60a;</span>JS30-筆記</span>
     
         <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
     
