@@ -15,8 +15,10 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://yehjing.github.io/Blog/
 root: /Blog/
-permalink: :year/:id/
+permalink: :year/:month/:day/:urlname/
+# 当没有urlname时显示什么
 permalink_defaults:
+  urlname: index
 
 # Directory
 source_dir: source
