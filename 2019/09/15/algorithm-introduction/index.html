@@ -17,7 +17,7 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="Jing">
     
-    <meta name="keywords" content="Jing's 技術筆記,Jing">
+    <meta name="keywords" content="技術筆記,前端">
     
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
@@ -286,11 +286,6 @@ height:50vh;
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
                     <span class="post-intro-time">2019/09/15</span>
                     
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
                     <span class="shareWrapper">
                         <span class="iconfont-archer shareIcon">&#xe71d;</span>
                         <span class="shareText">Share</span>
@@ -459,7 +454,7 @@ height:50vh;
 <p>Big O 是用來描述一個演算法在輸入 n 個東西時，總執行時間與 n 的關係。</p>
 </blockquote>
 <h3 id="常見的時間複雜度比較"><a href="#常見的時間複雜度比較" class="headerlink" title="常見的時間複雜度比較"></a>常見的時間複雜度比較</h3><p>通常，我們會希望一個演算法至少能比 O(n²) 還要快，如果能到 O(n) 甚至是  O(log n) 、 O(1) 的話是最理想的情況。</p>
-<img src="/Blog/2019/ck1aop8oy000a3wuyxa12qo89/big.png">
+<img src="/Blog/2019/09/15/algorithm-introduction/big.png">
 <p>這張圖會看到當 n 到達一定數量， O(n²) 所花時間比 O(n) 多千倍甚至萬倍。所以寫出一個好的演算法是很重要的！</p>
 <h4 id="O-1-陣列讀取"><a href="#O-1-陣列讀取" class="headerlink" title="O(1) 陣列讀取"></a>O(1) 陣列讀取</h4><p>代表不管你輸入多少個東西，程式都會在同一個時間跑完。最簡單的例子就是讀取一個陣列中特定索引值的元素。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> color = [<span class="string">'red'</span>, <span class="string">'yellow'</span>, <span class="string">'blue'</span>]</span><br><span class="line"><span class="built_in">console</span>.log(color[<span class="number">2</span>]) <span class="comment">// blue</span></span><br></pre></td></tr></table></figure>
@@ -533,7 +528,7 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/Blog/2019/ck1aop8kc00063wuyz04stucv/" title= JS 複製 DIV 內容 >
+                <a href= "/Blog/2019/04/19/js-copy-paste/" title= JS 複製 DIV 內容 >
                     <div class="prevTitle">JS 複製 DIV 內容</div>
                 </a>
             
@@ -544,6 +539,21 @@ height:50vh;
     </ul>
     <!-- 评论插件 -->
     <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80NjQ5OS8yMzAwOQ==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
 
 <!-- City版安装代码已完成 -->
     
@@ -609,17 +619,10 @@ height:50vh;
     </div>
     
     <!-- powered by Hexo  -->
-    <div class="copyright">
+    <!-- <div class="copyright">
         <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
-    </div>
+    </div> -->
     <!-- 不蒜子  -->
-    
-    <div class="busuanzi-container">
-    
-    
-    <span id="busuanzi_container_site_uv">站點訪問量: <span id="busuanzi_value_site_uv"></span></span>
-    
-    </div>
     
 </footer>
     </div>
@@ -764,8 +767,6 @@ top:50vh;
     
     
     
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 9
@@ -784,12 +785,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/ck1aop8oy000a3wuyxa12qo89/" >演算法與時間複雜度</a>
+            <span class="archive-post-date">09/15</span><a class="archive-post-title" href= "/Blog/2019/09/15/algorithm-introduction/" >演算法與時間複雜度</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/ck1aop8kc00063wuyz04stucv/" >JS 複製 DIV 內容</a>
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/Blog/2019/04/19/js-copy-paste/" >JS 複製 DIV 內容</a>
         </li>
     
     
@@ -803,37 +804,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k900043wuyogd639ci/" >[JS30] Day 5: Flex Panels Image Gallery</a>
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/Blog/2018/08/28/js30-5/" >[JS30] Day 5: Flex Panels Image Gallery</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8kd00073wuyr7qw9prf/" >[JS30] Day 4: Array Cardio Day 1</a>
+            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/Blog/2018/08/25/js30-4/" >[JS30] Day 4: Array Cardio Day 1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k600023wuynfrjzft6/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href= "/Blog/2018/06/28/js30-3/" >[JS30] Day 3: Playing with CSS Variables and JS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k700033wuyck0eu1q8/" >[JS30] Day 2: CSS + JS Clock</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/Blog/2018/06/27/js30-2/" >[JS30] Day 2: CSS + JS Clock</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8k400013wuyp5i2vx7g/" >[JS30] Day 1: JavaScript Drum Kit</a>
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/Blog/2018/06/12/js30-1/" >[JS30] Day 1: JavaScript Drum Kit</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8jy00003wuy3pnjgben/" >Javascript Array Method</a>
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/Blog/2018/06/05/index/" >Javascript Array Method</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/ck1aop8ka00053wuy1eo7sz77/" >如何用hexo搭建部落格並連結GitHub Pages</a>
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/Blog/2018/05/25/index/" >如何用hexo搭建部落格並連結GitHub Pages</a>
         </li>
     
     </div>
@@ -843,9 +844,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
-        <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
-    
         <span class="sidebar-tag-name" data-tags="Hexo"><span class="iconfont-archer">&#xe606;</span>Hexo</span>
+    
+        <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
     
         <span class="sidebar-tag-name" data-tags="Algorithm"><span class="iconfont-archer">&#xe606;</span>Algorithm</span>
     
@@ -882,9 +883,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
-    
         <span class="sidebar-category-name" data-categories="JS30筆記"><span class="iconfont-archer">&#xe60a;</span>JS30筆記</span>
+    
+        <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
     
         <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
     
@@ -913,8 +914,6 @@ jsonContent:
     <!-- algolia -->
     
     <!-- busuanzi  -->
-    
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     <!-- CNZZ  -->
     
