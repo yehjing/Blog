@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Git 筆記 · Jing&#39;s 技術筆記</title>
+    <title>Git 指令筆記 · Jing&#39;s 技術筆記</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -228,7 +228,7 @@
                 <a href="/Blog/" >Jing&#39;s 技術筆記</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Git 筆記</a>
+                <a href="#" class="post-name">Git 指令筆記</a>
             </div>
     </div>
     
@@ -258,7 +258,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Git 筆記
+            Git 指令筆記
             <!-- 404 -->
             
         </h1>
@@ -406,10 +406,10 @@ height:50vh;
         <center>筆記一下自己公司久久會用一次的 git 指令</center>
 
 <h2 id="複製倉庫"><a href="#複製倉庫" class="headerlink" title="複製倉庫"></a><center>複製倉庫</center></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --bare [old repository url]</span><br></pre></td></tr></table></figure>
-<p>进入到旧仓库目录，通过mirror参数推送到新的Repository</p>
+<p>進入到倉庫目錄，通過 mirror 參數推送到新的 Repository</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd [old repository]</span><br><span class="line">git push --mirror [new repository url]</span><br></pre></td></tr></table></figure>
-<p>这样就会把旧仓库原样的复制到新仓库上，包括所有的分支、提交记录等等</p>
-<h2 id="解决fatal-refusing-to-merge-unrelated-histories"><a href="#解决fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="解决fatal: refusing to merge unrelated histories"></a><center>解决fatal: refusing to merge unrelated histories</center></h2><p>Git 再合併兩個倉庫或兩個分支時，有時候會出現這個錯誤:<br><code>fatal: refusing to merge unrelated histories</code></p>
+<p>這樣就會把舊倉庫原樣的複製到新倉庫上，包括所有的分支、提交記錄等等</p>
+<h2 id="解决fatal-refusing-to-merge-unrelated-histories"><a href="#解决fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="解决fatal: refusing to merge unrelated histories"></a><center>解决fatal: refusing to merge unrelated histories</center></h2><p>Git 再合併兩個倉庫或兩個分支時，有時候會出現這個錯誤: <code>fatal: refusing to merge unrelated histories</code></p>
 <p>解決方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge master --allow-unrelated-histories</span><br></pre></td></tr></table></figure></p>
 <h2 id="提交空的commit"><a href="#提交空的commit" class="headerlink" title="提交空的commit"></a><center>提交空的commit</center></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone [repository url]</span><br><span class="line">cd [folder]</span><br><span class="line">git commit --allow-empty -m &apos;initial&apos;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
@@ -693,7 +693,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/Blog/2020/06/18/git-note/" >Git 筆記</a>
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/Blog/2020/06/18/git-note/" >Git 指令筆記</a>
         </li>
     
     
