@@ -1,5 +1,5 @@
 ---
-title: Git 筆記
+title: Git 指令筆記
 date: 2020-06-18 20:00:02
 urlname: git-note
 tags: Git
@@ -13,19 +13,18 @@ categories: Git
 ```
 git clone --bare [old repository url]
 ```
-进入到旧仓库目录，通过mirror参数推送到新的Repository
+進入到倉庫目錄，通過 mirror 參數推送到新的 Repository
 
 ```
 cd [old repository]
 git push --mirror [new repository url]
 ```
-这样就会把旧仓库原样的复制到新仓库上，包括所有的分支、提交记录等等
+這樣就會把舊倉庫原樣的複製到新倉庫上，包括所有的分支、提交記錄等等
 
 
 ## <center>解决fatal: refusing to merge unrelated histories</center>
 
-Git 再合併兩個倉庫或兩個分支時，有時候會出現這個錯誤:
-`fatal: refusing to merge unrelated histories`
+Git 再合併兩個倉庫或兩個分支時，有時候會出現這個錯誤: `fatal: refusing to merge unrelated histories`
 
 解決方法:
 ```
