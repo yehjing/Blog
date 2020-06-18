@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Jing&#39;s 技術筆記</title>
+    <title>Git 筆記 · Jing&#39;s 技術筆記</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -214,12 +214,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/Blog/" >Jing&#39;s 技術筆記</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Git 筆記</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/Blog/>Jing's 技術筆記</a>
 </header>
@@ -231,24 +242,65 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/Blog/)"></div>
+    <div class="site-intro-img" style="background-image: url(/Blog/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Git 筆記
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Git">Git</a>
+    
+</div>
+                
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/06/18</span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -349,277 +401,63 @@
 </script>        
         <img class="loading" src="/Blog/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/08/28/js30-5/" >
-            
-                <span>[JS30] Day 5: Flex Panels Image Gallery</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 5: Flex Panels Image Gallery用 CSS-Flex 與 JS 製作一個點擊後會展開的圖片展示效果
+            <main class="main post-page">
+    <article class="article-entry">
+        <center>筆記一下自己公司久久會用一次的 git 指令</center>
 
-主要練習:
+<h2 id="複製倉庫"><a href="#複製倉庫" class="headerlink" title="複製倉庫"></a><center>複製倉庫</center></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --bare [old repository url]</span><br></pre></td></tr></table></figure>
+<p>进入到旧仓库目录，通过mirror参数推送到新的Repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd [old repository]</span><br><span class="line">git push --mirror [new repository url]</span><br></pre></td></tr></table></figure>
+<p>这样就会把旧仓库原样的复制到新仓库上，包括所有的分支、提交记录等等</p>
+<h2 id="解决fatal-refusing-to-merge-unrelated-histories"><a href="#解决fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="解决fatal: refusing to merge unrelated histories"></a><center>解决fatal: refusing to merge unrelated histories</center></h2><p>Git 再合併兩個倉庫或兩個分支時，有時候會出現這個錯誤:<br><code>fatal: refusing to merge unrelated histories</code></p>
+<p>解決方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge master --allow-unrelated-histories</span><br></pre></td></tr></table></figure></p>
+<h2 id="提交空的commit"><a href="#提交空的commit" class="headerlink" title="提交空的commit"></a><center>提交空的commit</center></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone [repository url]</span><br><span class="line">cd [folder]</span><br><span class="line">git commit --allow-empty -m &apos;initial&apos;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
-CSS - Flexbox
-JS - transitionend event
-
-
-CSSStep 1 :首先可以看到 HTML 中，有一個 .panels 包覆著 5 個 .panel，預覽畫面時，發現畫面是由上到下排列的，但我們要的是這 5 個 .panel 橫向並等寬的佔滿畫面，所以這時我們在 .panels 上使用 display: flex 屬性，讓內層子元素都變成 flex 屬性。
-Step 2 :這時會看到 .panel 變成橫...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/08/25/js30-4/" >
-            
-                <span>[JS30] Day 4: Array Cardio Day 1</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 4: Array Cardio Day 1對於 ECMAScript5 增加的陣列方法做進一步的認識。
-
-在先前的文章中，有針對過這些陣列的基本用法做過詳細的介紹，所以這邊有的習題不會講解的那麼仔細，如果對以下幾個陣列方法還不熟悉的，可以先去看看這篇文章。
-主要練習:
-
-JS - Array.prototype.filter()
-JS - Array.prototype.map()
-JS - Array.prototype.sort()
-JS - Array.prototype.reduce()
-JS - Array.prototype.forEach()
-
-
-題目內容首先從草...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/06/28/js30-3/" >
-            
-                <span>[JS30] Day 3: Playing with CSS Variables and JS</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 3: Playing with CSS Variables and JS學習使用 CSS 變數並搭配 JS 
-
-主要練習:
-
-CSS - Variables
-HTML5 - data-* attribute
-JS - element.dataset.camelCasedName
-JS - CSSStyleDeclaration.setProperty()
-JS - Document.documentElement
-
-
-設定 CSS 變數CSS - Variables在原生的 CSS 中我們也可以使用變數的概念，相較於 CSS 前處理器（例如，SASS/SCSS），CSS 前處理...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/06/27/js30-2/" >
-            
-                <span>[JS30] Day 2: CSS + JS Clock</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 2: CSS + JS Clock使用 JS 及 CSS 製作出一個簡易的時鐘。
-
-主要練習:
-
-CSS - transform
-JS - Date
-JS - HTMLElement.style
-JS - window.setInterval()
-
-
-設定 CSS 樣式CSS - transform開啟專案後，可以看到所有只指針都指在9點鐘的方向，這時我們需要用 CSS  transform的功能去調整指針的位置到12點鐘方向。
-在 CSS 中找到 .hand 並加入以下程式碼:
-12345.hand &#123;  transform-origin: 100%; /* 將元素...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/06/12/js30-1/" >
-            
-                <span>[JS30] Day 1: JavaScript Drum Kit</span>
-        </a>
-        <div class="abstract-content">
-            
-Day 1: JavaScript Drum Kit透過 JavaScript 模擬一個打鼓的頁面，在按下按鍵的同時，頁面上對應的字母按鈕會變大並加上邊框，同時具有樂器的聲音。
-
-播放、增加動態效果Step1 : 偵測鍵盤按鍵Keycode為了知道我們鍵盤按鍵所對應的 Keycode ，所以我們先建立一個 window 的監聽事件去監聽’按下鍵盤’這個動作 (keydown)，所然後再用 console.log(e.keyCode) 來看看所對應的 Keycode。
-12window.addEventListener('keydown', e =&gt; console.log(e.k...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/06/05/index/" >
-            
-                <span>Javascript Array Method</span>
-        </a>
-        <div class="abstract-content">
-            Javascript Array Method在工作中，常常會遇到需要處理陣列的資料時候，所以熟悉 Javascript 裡的陣列方法是必須的，在剛學習時，常常會忘記也不清楚這些方法return回來的結果是甚麼、會不會改變原陣列中的資料。  
-所以在這邊做了個筆記，整理一下自己常使用的 JS 陣列方法，方便自己以後能夠快速查找，也希望對參考此篇文章的讀者有幫助。(有些自己不常用的陣列方法這邊就先不提，若未來常使用到會再做補充)
-
- 陣列內容操作在開頭或結尾處添加或移除一個元素 push()、pop()、unshift()、shift()如果要在陣列的開頭或結尾處添加或移除一個元素，這邊介...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ES6">ES6</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2018/05/25/index/" >
-            
-                <span>如何用hexo搭建部落格並連結GitHub Pages</span>
-        </a>
-        <div class="abstract-content">
-            如何用hexo搭建部落格並連結GitHub Pages Hexo 簡介與安裝什麼是 HexoHexo 是一個快速、簡單且強大的網誌框架。Hexo 使用 Markdown（或其他渲染引擎）解析您的文章，並在幾秒鐘內，透過漂亮的主題產生靜態檔案。
-安裝首先電腦必須安裝下列軟體:
-
-Node.js
-Git
-
-安裝完成後透過終端機執行以下指令，藉由npm即可完成 Hexo 的安裝。1$ npm install -g hexo-cli
-建立創建我的部落格:1234$ hexo init blog        //創建一個名為blog的資料夾$ cd blog               //切換...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/05/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Hexo">Hexo</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/Blog/2019/09/15/algorithm-introduction/" title= 演算法與時間複雜度 >
+                    <div class="prevTitle">演算法與時間複雜度</div>
+                </a>
+            
+        </li>
+        <li class="next">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80NjQ5OS8yMzAwOQ==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -682,6 +520,24 @@ Git
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#複製倉庫"><span class="toc-number">1.</span> <span class="toc-text">複製倉庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决fatal-refusing-to-merge-unrelated-histories"><span class="toc-number">2.</span> <span class="toc-text">解决fatal: refusing to merge unrelated histories</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交空的commit"><span class="toc-number">3.</span> <span class="toc-text">提交空的commit</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -989,6 +845,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/Blog/scripts/share.js" async></script>    
      
     </body>
 </html>

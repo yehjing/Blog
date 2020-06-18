@@ -370,6 +370,41 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/Blog/2020/06/18/git-note/" >
+            
+                <span>Git 筆記</span>
+        </a>
+        <div class="abstract-content">
+            筆記一下自己公司久久會用一次的 git 指令
+
+複製倉庫1git clone --bare [old repository url]
+进入到旧仓库目录，通过mirror参数推送到新的Repository
+12cd [old repository]git push --mirror [new repository url]
+这样就会把旧仓库原样的复制到新仓库上，包括所有的分支、提交记录等等
+解决fatal: refusing to merge unrelated historiesGit 再合併兩個倉庫或兩個分支時，有時候會出現這個錯誤:fatal: refusing to merge u...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Git">Git</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/Blog/2019/09/15/algorithm-introduction/" >
             
                 <span>演算法與時間複雜度</span>
@@ -968,9 +1003,22 @@ Git
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 9
+        Total : 10
         </div>
         <!-- search  -->
         
@@ -980,6 +1028,20 @@ Git
     
     
     
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/Blog/2020/06/18/git-note/" >Git 筆記</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
@@ -1043,6 +1105,8 @@ Git
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
+    
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
         <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
@@ -1084,9 +1148,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
+        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
         <span class="sidebar-category-name" data-categories="JS30筆記"><span class="iconfont-archer">&#xe60a;</span>JS30筆記</span>
+    
+        <span class="sidebar-category-name" data-categories="JavaScript"><span class="iconfont-archer">&#xe60a;</span>JavaScript</span>
     
         <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
     
