@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Jing&#39;s 技術筆記</title>
+    <title>CSS 限制字數/行數，讓過長的文字隱藏變&#34;…&#34; · Jing&#39;s 技術筆記</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -214,12 +214,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/Blog/" >Jing&#39;s 技術筆記</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">CSS 限制字數/行數，讓過長的文字隱藏變"…"</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/Blog/>Jing's 技術筆記</a>
 </header>
@@ -231,24 +242,65 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/Blog/)"></div>
+    <div class="site-intro-img" style="background-image: url(/Blog/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            CSS 限制字數/行數，讓過長的文字隱藏變"…"
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "CSS">CSS</a>
+    
+</div>
+                
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/11/16</span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -349,77 +401,61 @@
 </script>        
         <img class="loading" src="/Blog/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2019/09/15/algorithm-introduction/" >
-            
-                <span>演算法與時間複雜度</span>
-        </a>
-        <div class="abstract-content">
-            什麼是演算法(Algorithm)
-在數學（算學）和電腦科學之中，為任何良定義的具體計算步驟的一個序列，常用於計算、資料處理和自動推理。精確而言，演算法是一個表示爲有限長列表的有效方法。演算法應包含清晰定義的指令用於計算函式。維基百科
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="原先效果"><a href="#原先效果" class="headerlink" title="原先效果"></a><center>原先效果</center></h2><img src="/Blog/2020/11/16/css-ellipsis/text-Lorem.png">
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ellipsis"</span>&gt;</span></span><br><span class="line">    自方心使治了中音這成藝登過成正令裡天吸國過化式公臺向化式對件年數病天聲爸實正令飛有特做過成突是視一完</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">600px</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="單行文字隱藏效果"><a href="#單行文字隱藏效果" class="headerlink" title="單行文字隱藏效果"></a><center>單行文字隱藏效果</center></h2><img src="/Blog/2020/11/16/css-ellipsis/single-line-ellipsis.png">
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ellipsis</span>&#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多行文字隱藏效果"><a href="#多行文字隱藏效果" class="headerlink" title="多行文字隱藏效果"></a><center>多行文字隱藏效果</center></h2><img src="/Blog/2020/11/16/css-ellipsis/multi-line-ellipsis.png">
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ellipsis</span>&#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  -webkit-line-clamp: 2; // 行數</span><br><span class="line">  <span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</span><br><span class="line">  <span class="selector-tag">white-space</span>: <span class="selector-tag">normal</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-「演算法」是用以執行計算或完成作業的程序，可以想像成手機裡的電話簿，想找出一筆特定的聯絡資料，可以從第一筆資料開始一筆一筆查找，也可以利用查詢功能查找，其中的過程就可以稱為是演算法。
-
-演算法的簡單定義式：輸入 + 演算法 = 輸出Input  -&gt;  Algorithm  -&gt;  Output ex: 3 * 3 = 9
-
-對演算法有基礎...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Algorithm">Algorithm</a>
-    
-</div>
-            
-        </div>
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/Blog/2019/04/19/js-copy-paste/" >
-            
-                <span>JS 複製 DIV 內容</span>
-        </a>
-        <div class="abstract-content">
-            
-如何使用 JavaScript 實現複製 DIV 內的內容1.創建要附加到文檔的 &lt;textarea&gt; 元素。將其值設置為我們要復製到剪貼板的字符串。2.將所述 &lt;textarea&gt; 元素附加到當前HTML文檔3.使用 HTMLInputElement.select() 選擇 &lt;textarea&gt; 元素的內容。4.使用 Document.execCommand(&#39;copy&#39;) 將 &lt;textarea&gt; 的內容複製到剪貼板。5.從文檔中刪除 &lt;textarea&gt; 元素。
-123456789101112131415...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/Blog/2020/06/18/git-note/" title= Git 指令筆記 >
+                    <div class="prevTitle">Git 指令筆記</div>
+                </a>
+            
+        </li>
+        <li class="next">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80NjQ5OS8yMzAwOQ==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -482,6 +518,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#原先效果"><span class="toc-number">1.</span> <span class="toc-text">原先效果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">1.2.</span> <span class="toc-text">CSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#單行文字隱藏效果"><span class="toc-number">2.</span> <span class="toc-text">單行文字隱藏效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多行文字隱藏效果"><span class="toc-number">3.</span> <span class="toc-text">多行文字隱藏效果</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -797,6 +851,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/Blog/scripts/share.js" async></script>    
      
     </body>
 </html>
